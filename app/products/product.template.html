@@ -7,7 +7,8 @@
         <th class="text-center">ID</th>
         <th class="text-center">Name</th>
         <th class="text-center">Description</th>
-        <th class="text-center">Price</th>
+        <th class="text-center">Location</th>
+        <th class="text-center">Status</th>
         <th class="text-center">&nbsp;</th>
       </tr>
     </thead>
@@ -16,7 +17,8 @@
         <td>{{ product.id }}</td>
         <td>{{ product.name }}</td>
         <td>{{ product.description }}</td>
-        <td>{{ product.price | currency:'USD':true:'1.0-2' }}</td>
+        <td>{{ product.location}}</td> <!-- | currency:'USD':true:'1.0-2' --> 
+        <td>{{ product.status }}</td>
         <td>
           <button class="btn btn-info"
                         (click)="showEditProductForm(product)">

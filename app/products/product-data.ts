@@ -1,18 +1,20 @@
-import { Product } from './product';
-
+import { Product , DeviceStatus } from './product';
 export const PRODUCT_ITEMS: Product[] = [{
     id: 1,
     name: 'Scissors',
     description: 'use this to cut stuff',
-    price: 4.99
+    location: 44,
+    status: DeviceStatus.good
   }, {
     id: 2,
     name: 'Steak Knives',
     description: 'use this to eat food with',
-    price: 10.99
+    location: 44,
+    status: DeviceStatus.good
   }, {
     id: 3,
     name: 'Shot Glass',
     description: 'use this to take shots',
-    price: 5.99
+    location: 44,
+    status: DeviceStatus.bad
   }]
