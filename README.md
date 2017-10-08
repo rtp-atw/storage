@@ -17,3 +17,4 @@
 - navbar
 - routing setup
 - app.template  -> loads navbar and **RouterOutlet** for **Home Component**
+
