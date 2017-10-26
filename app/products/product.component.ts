@@ -3,6 +3,7 @@ import { ProductService } from './product.service';
 import { Product } from './product';
 import { clone } from 'lodash';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 
 @Component({
     moduleId: module.id,
@@ -10,19 +11,30 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 
 export class ProductComponent implements OnInit {
+
   products: Product[];
   productForm: boolean = false;
   editProductForm: boolean = false;
   isNewForm: boolean;
   newProduct: any = {};
   editedProduct: any = {};
-  public currentUID: any;
+  currentUID: any;
+
+  devicelist: AngularFireList<any[]>;
+
 
   constructor(private _productService: ProductService,
-    private afAuth: AngularFireAuth) { }
+    private afAuth: AngularFireAuth,
+    public angFire: AngularFireDatabase, ) { 
+    
+    this.devicelist = angFire.list('/');
+    //console.log(this.devicelist);
+    
+    }
 
   ngOnInit() {
     this.getProducts();
+    this.getData();
     this.afAuth.authState.subscribe((auth) => { 
       this.currentUID = auth.uid;
       console.log(this.currentUID);
@@ -31,6 +43,10 @@ export class ProductComponent implements OnInit {
 
   getProducts() {
     this.products = this._productService.getProductsFromData();
+  }
+
+  getData() {
+    this.devicelist = this._productService.getDevice();
   }
 
   showEditProductForm(product: Product) {

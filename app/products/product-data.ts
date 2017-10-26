@@ -1,4 +1,6 @@
-import { Product , DeviceStatus } from './product';
+import { Product, DeviceStatus } from './product';
+
+
 export const PRODUCT_ITEMS: Product[] = [{
     id: 1,
     name: 'Multimeter',

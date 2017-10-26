@@ -1,11 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Product } from './product';
+import { Product,deviceDetail2 } from './product';
 import { PRODUCT_ITEMS } from './product-data';
 import { findIndex } from 'lodash';
+import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 
 @Injectable()
 export class ProductService {
   private pItems = PRODUCT_ITEMS;
+
+  devicelist: AngularFireList<any[]>;
+
+  constructor(public angFire: AngularFireDatabase) { 
+    
+    this.devicelist = angFire.list('/');
+    console.log(this.devicelist);
+    
+  }
+  
+  getDevice() {
+ 
+    return this.devicelist;
+  }
 
   getProductsFromData(): Product[] {
     console.log(this.pItems);
