@@ -1,0 +1,37 @@
+<form>
+        <h2>Add New Product</h2>
+        <p>ID: <input type="text"
+                              name="id"
+                              [(ngModel)]="deviceDetail.id" /></p>
+        <p>Serial: <input type="text"
+                              name="name"
+                              [(ngModel)]="deviceDetail.serialnumber" /></p>
+        <p>Name: <input type="text"
+                              name="description"
+                              [(ngModel)]="deviceDetail.name" /></p>
+        <p>Import Date: <input type="text"
+                              name="location"
+                              [(ngModel)]="deviceDetail.importdate" /></p>
+        <p>Location: <input type="text"
+                              name="id"
+                              [(ngModel)]="deviceDetail.location_storage" /></p>
+        <p>Status: <input type="text"
+                              name="name"
+                              [(ngModel)]="deviceDetail.status" /></p>
+        <p>Detail: <input type="text"
+                              name="description"
+                              [(ngModel)]="deviceDetail.detail" /></p>
+        <p>Image: <input type="file"(change)="selectFile($event)"><br><br>
+          
+          <button type="submit"
+                       class="btn btn-primary"
+                       (click)="saveProduct()">Submit</button>
+          <button type="button"
+                       class="btn btn-warning"
+                       (click)="cancelNewProduct()">Cancel</button>
+        </p>
+</form>
+<button (click)="toMain()" >Back</button>
+    
+
+ 

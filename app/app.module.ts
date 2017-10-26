@@ -10,7 +10,7 @@ import { NavbarComponent } from './nav/nav.component';
 
 import { ProductService } from './products/product.service';
 import { LoginComponent } from "./login/login.component";
-
+import { AddDevice } from "./adddevice/adddevice.component";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -41,6 +41,7 @@ export const firebaseConfig = {
   declarations: [ AppComponent,
                           ProductComponent,
                           LoginComponent,
+                          AddDevice,
                           NavbarComponent
                           ],
   providers: [ ProductService ],

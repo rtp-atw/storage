@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { ProductComponent } from './products/product.component';
 import { LoginComponent } from "./login/login.component";
+import { AddDevice } from "./adddevice/adddevice.component";
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
             { path: 'main', component: ProductComponent },
             { path: '', component: LoginComponent },
+            { path: 'add', component: AddDevice },
             { path: '**', redirectTo: '', pathMatch: 'full' }
         ] , { preloadingStrategy: PreloadAllModules })
     ],
