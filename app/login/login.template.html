@@ -1,0 +1,17 @@
+<form>
+    <h2>LoginPage</h2>
+    <p>ID: <input type="text"
+                           name="id"
+                           [(ngModel)]="user.id" /></p>
+    <p>Name: <input type="text"
+                                 name="name"
+                                 [(ngModel)]="user.password" /></p>
+    <p>
+      <button type="button"
+                   class="btn btn-primary"
+                   (click)="login(user)">Login</button>
+      <button type="button"
+                   class="btn btn-warning"
+                   (click)="singup()">Singup</button>
+    </p>
+</form>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product } from './product';
 import { clone } from 'lodash';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
     moduleId: module.id,
@@ -15,11 +16,17 @@ export class ProductComponent implements OnInit {
   isNewForm: boolean;
   newProduct: any = {};
   editedProduct: any = {};
+  public currentUID: any;
 
-  constructor(private _productService: ProductService) { }
+  constructor(private _productService: ProductService,
+    private afAuth: AngularFireAuth) { }
 
   ngOnInit() {
     this.getProducts();
+    this.afAuth.authState.subscribe((auth) => { 
+      this.currentUID = auth.uid;
+      console.log(this.currentUID);
+    });    
   }
 
   getProducts() {
@@ -71,5 +78,5 @@ export class ProductComponent implements OnInit {
     this.editedProduct = {};
     this.editProductForm = false;
   }
-
+  
 }
