@@ -4,6 +4,7 @@ import { Product } from './product';
 import { clone } from 'lodash';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     moduleId: module.id,
@@ -18,23 +19,24 @@ export class ProductComponent implements OnInit {
   isNewForm: boolean;
   newProduct: any = {};
   editedProduct: any = {};
+
+  deviceKey: any;
   currentUID: any;
 
-  devicelist: AngularFireList<any[]>;
-
+  devicelist: Observable<any[]>;
 
   constructor(private _productService: ProductService,
     private afAuth: AngularFireAuth,
     public angFire: AngularFireDatabase, ) { 
     
-    this.devicelist = angFire.list('/');
-    //console.log(this.devicelist);
-    
+    this.devicelist = angFire.list('/').valueChanges();;
+    //this.deviceKey = angFire.database.ref('/').key;
     }
 
   ngOnInit() {
     this.getProducts();
-    this.getData();
+    console.log('key',this.deviceKey);
+    console.log('devicelist',this.devicelist);
     this.afAuth.authState.subscribe((auth) => { 
       this.currentUID = auth.uid;
       console.log(this.currentUID);
@@ -43,10 +45,6 @@ export class ProductComponent implements OnInit {
 
   getProducts() {
     this.products = this._productService.getProductsFromData();
-  }
-
-  getData() {
-    this.devicelist = this._productService.getDevice();
   }
 
   showEditProductForm(product: Product) {

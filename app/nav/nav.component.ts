@@ -18,9 +18,9 @@ export class NavbarComponent {
     
   }
   
-/*   logout() {
+  logout() {
     this.afAuth.auth.signOut();
     console.log('logout');
     this.router.navigateByUrl('/');
-  } */
+  }
 }

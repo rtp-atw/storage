@@ -35,8 +35,7 @@ export class LoginComponent implements OnInit {
         }
     }
     ngOnInit() {      
-    this.afAuth.authState.subscribe(auth => {
-        console.log(auth.uid); 
+    this.afAuth.authState.subscribe(auth => { 
       if (!auth)  
         this.router.navigateByUrl('/');
       else

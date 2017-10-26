@@ -8,20 +8,6 @@ import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 export class ProductService {
   private pItems = PRODUCT_ITEMS;
 
-  devicelist: AngularFireList<any[]>;
-
-  constructor(public angFire: AngularFireDatabase) { 
-    
-    this.devicelist = angFire.list('/');
-    console.log(this.devicelist);
-    
-  }
-  
-  getDevice() {
- 
-    return this.devicelist;
-  }
-
   getProductsFromData(): Product[] {
     console.log(this.pItems);
     return this.pItems
