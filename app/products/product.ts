@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   description: string;
   location: number;
-  status: DeviceStatus;
+  status?: DeviceStatus;
 }
 
 export enum DeviceStatus { //DeviceStatus.good/bad
