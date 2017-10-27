@@ -27,11 +27,11 @@
         <td>{{device.imgurl}}</td>
         <td>
           <button class="btn btn-info"
-                        (click)="showEditProductForm(product)">
+                        (click)="showEditProductForm()">
                        <i class="fa fa-edit"></i>
               </button>
           <button class="btn btn-danger"
-                       (click)="removeProduct(product)">
+                       (click)="removeProduct(device.$)">
                        <i class="fa fa-minus"></i>
             </button>
         </td>

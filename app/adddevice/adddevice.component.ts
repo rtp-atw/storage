@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 
 export class AddDevice implements OnInit {
-
+    
     deviceDetail: deviceDetail2[] = [];
     devicelist: AngularFireList<any>;
     storageRef = firebase.storage().ref();
