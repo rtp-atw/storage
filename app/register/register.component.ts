@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from "./auth";
+import { User } from "../login/auth";
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'login.template.html'
+    templateUrl: 'register.template.html'
 })
 
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
     user = {} as User;
 
@@ -21,13 +21,13 @@ export class LoginComponent implements OnInit {
     ) { 
         
     }   
-    async login(user: User) {
+    async register(user: User) {
         try {
-            const result = this.afAuth.auth.signInWithEmailAndPassword(user.id, user.password);
+            const result = this.afAuth.auth.createUserWithEmailAndPassword(user.id, user.password);
             console.log('login', result);
-/*             if (result) {
-                this.router.navigateByUrl('/main');
-            } */
+            if (result) {
+                this.router.navigateByUrl('/');
+            }
         }
     
         catch (e) {
@@ -35,15 +35,11 @@ export class LoginComponent implements OnInit {
         }
     }
     ngOnInit() {      
-    this.afAuth.authState.subscribe(auth => { 
+/*     this.afAuth.authState.subscribe(auth => { 
       if (!auth)  
         this.router.navigateByUrl('/');
       else
         this.router.navigateByUrl('/main');
-    });
-    }
-
-    register(){
-        this.router.navigateByUrl('/register');
+    }); */
     }
 }

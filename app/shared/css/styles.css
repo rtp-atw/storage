@@ -22,4 +22,17 @@
   border: none;
   outline: none;
 }
+#btnhome {  
+  margin-left: 121px;
+  margin-top: 9px;
+  width: 84px;
+  height: 30px;
+  text-align: center;  
+  /* background: transparent; */
+  border: none;
+  color: rgb(0, 0, 0);   
+  font-size:14px;
+  font-weight:700;
+  
+}
 

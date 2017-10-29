@@ -24,14 +24,14 @@
         <td>{{ device.location_storage}}</td>
         <td>{{ device.importdate}}</td>  
         <td>{{ device.status }}</td>
-        <td>{{device.imgurl}}</td>
+        <td>{{ device.imgurl }}</td>
         <td>
           <button class="btn btn-info"
-                        (click)="showEditProductForm(product)">
+                        (click)="showEditProductForm(device.key$)">
                        <i class="fa fa-edit"></i>
               </button>
           <button class="btn btn-danger"
-                       (click)="removeProduct(product)">
+                       (click)="removeProduct(device.key$)">
                        <i class="fa fa-minus"></i>
             </button>
         </td>
