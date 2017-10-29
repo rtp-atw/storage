@@ -78,8 +78,8 @@ export class ProductComponent implements OnInit {
     this.productForm = false;
   }
 
-  removeProduct(product: Product) {
-    this._productService.deleteProduct(product);
+  removeProduct(deviceID:any) {
+    //this._productService.deleteProduct(deviceID);
   }
 
   updateProduct() {
