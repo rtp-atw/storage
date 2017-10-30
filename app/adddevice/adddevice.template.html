@@ -1,5 +1,5 @@
 <form>
-        <h2>Add New Product</h2>
+        <h2 align="center">Add New Product</h2>
         <p>ID: <input type="text"
                               name="id"
                               [(ngModel)]="deviceDetail.id" /></p>
@@ -28,10 +28,10 @@
                        (click)="saveProduct()">Submit</button>
           <button type="button"
                        class="btn btn-warning"
-                       (click)="cancelNewProduct()">Cancel</button>
+                       (click)="toMain()">Cancel</button>
         </p>
 </form>
-<button (click)="toMain()" >Back</button>
+<!-- <button (click)="toMain()" >Back</button> -->
     
 
  

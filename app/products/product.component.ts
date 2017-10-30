@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
   editedProduct: any = {};
 
   currentUID: any;
-
+  datafb : deviceDetail2[];
   devicelist: Observable<any[]>;
  
   constructor(private _productService: ProductService,
@@ -33,17 +33,22 @@ export class ProductComponent implements OnInit {
     private router: Router) { 
     
     this.devicelist = angFire.list('/').valueChanges();;
-  
+    var ref = firebase.database().ref('/').key;
+    console.log('ref',ref);
     }
 
   ngOnInit() {
     this.getProducts();
     console.log('devicelist',this.devicelist);
+
     this.afAuth.authState.subscribe((auth) => { 
       this.currentUID = auth.uid;
       console.log(this.currentUID);
+      console.log(auth);
     });    
   }
+
+
   toAddDevice() {
     this.router.navigateByUrl('/add');
   }
@@ -79,6 +84,7 @@ export class ProductComponent implements OnInit {
   }
 
   removeProduct(deviceID:any) {
+    console.log('key',deviceID);
     //this._productService.deleteProduct(deviceID);
   }
 
