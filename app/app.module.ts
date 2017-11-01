@@ -18,6 +18,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+import { HttpModule } from '@angular/http';
+import * as XLSX from 'xlsx';
 
 export const firebaseConfig = {
   production: false,
@@ -38,7 +40,8 @@ export const firebaseConfig = {
                    AngularFireModule.initializeApp(firebaseConfig.firebase),
                    AngularFirestoreModule, 
                    AngularFireAuthModule,
-                   AngularFireDatabaseModule
+                   AngularFireDatabaseModule,
+                   HttpModule,
                    ],
   declarations: [ AppComponent,
                           ProductComponent,

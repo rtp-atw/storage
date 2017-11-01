@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
+
 @Component({
     moduleId: module.id,
     templateUrl: 'product.template.html'

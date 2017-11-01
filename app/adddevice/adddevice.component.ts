@@ -6,6 +6,11 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
+import { HttpModule } from '@angular/http';
+
+import * as papa from 'papaparse';
+import * as XLSX from 'ts-xlsx';
+
 @Component({
     moduleId: module.id,
     templateUrl: 'adddevice.template.html'
@@ -27,8 +32,15 @@ export class AddDevice implements OnInit {
   
     }
 
-    ngOnInit() {
+    ngOnInit() {}
 
+    XLStoJSON(e: any) {
+        var excel = e.target.files[0];
+        console.log(excel);
+/*         var read = XLSX.read('file:///D:\Users\RAtaP\Desktop\Book1.xlsx');
+        console.log(read); */
+        
+        
     }
 
     toMain() {
@@ -38,6 +50,7 @@ export class AddDevice implements OnInit {
         console.log(e);
         this.file = e.target.files[0]
     }
+
 
     uploadPhoto(key:any) {
         console.log(this.file);
