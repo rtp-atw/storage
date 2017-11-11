@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import * as papa from 'papaparse';
-import * as XLSX from 'ts-xlsx';
 
 @Component({
     moduleId: module.id,
@@ -37,10 +36,7 @@ export class AddDevice implements OnInit {
     XLStoJSON(e: any) {
         var excel = e.target.files[0];
         console.log(excel);
-/*         var read = XLSX.read('file:///D:\Users\RAtaP\Desktop\Book1.xlsx');
-        console.log(read); */
-        
-        
+ 
     }
 
     toMain() {

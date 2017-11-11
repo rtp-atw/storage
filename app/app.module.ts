@@ -19,7 +19,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { HttpModule } from '@angular/http';
-import * as XLSX from 'xlsx';
 
 export const firebaseConfig = {
   production: false,
