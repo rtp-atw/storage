@@ -6,10 +6,6 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
-import { HttpModule } from '@angular/http';
-
-import * as papa from 'papaparse';
-
 @Component({
     moduleId: module.id,
     templateUrl: 'adddevice.template.html'
