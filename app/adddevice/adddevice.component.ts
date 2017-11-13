@@ -59,7 +59,7 @@ export class AddDevice implements OnInit {
           });
         });
       }
-      
+
     saveProduct() {
         var data = this.devicelist.push(this.deviceDetail);
         this.key = data.ref.key;
@@ -68,6 +68,20 @@ export class AddDevice implements OnInit {
         this.uploadPhoto(this.key);
     }
 
-    
+
+    addInput(divName:any){
+    var counter = 1;
+    var limit = 3;
+     if (counter == limit)  {
+          alert("You have reached the limit of adding " + counter + " inputs");
+     }
+     else {
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = "ID: <input type='text'name='id'[(ngModel)]='deviceDetail.id'/></p>";
+          
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+     }
+}
     
 }  
