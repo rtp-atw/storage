@@ -27,11 +27,11 @@
         <td>{{ device.imgurl }}</td>
         <td>
           <button class="btn btn-info"
-                        (click)="showEditProductForm(device.$key)">
+                        (click)="showEditProductForm(device.key)">
                        <i class="fa fa-edit"></i>
               </button>
           <button class="btn btn-danger"
-                       (click)="removeProduct(device.$key)">
+                       (click)="removeProduct(device.key)">
                        <i class="fa fa-minus"></i>
             </button>
         </td>
@@ -41,24 +41,36 @@
   
   <button (click)="toAddDevice()" >Add Device</button>
 
-    <form *ngIf="editProductForm">
+   <form *ngIf="editProductForm">
     <h2>Edit Product Details</h2>
+ 
     <p>ID: <input type="text"
-                           name="id"
-                           [(ngModel)]="editedProduct.id" /></p>
+                          name="id"
+                          [(ngModel)]="device.id" /></p>
+    <p>Serial: <input type="text"
+                          name="name"
+                          [(ngModel)]="device.serialnumber" /></p>
     <p>Name: <input type="text"
-                                 name="name"
-                                 [(ngModel)]="editedProduct.name" /></p>
-    <p>Description: <input type="text"
-                                          name="description"
-                                          [(ngModel)]="editedProduct.description" /></p>
+                          name="description"
+                          [(ngModel)]="device.name" /></p>
+    <p>Import Date: <input type="text"
+                          name="location"
+                          [(ngModel)]="device.importdate" /></p>
     <p>Location: <input type="text"
-                                name="location"
-                                [(ngModel)]="editedProduct.location" /></p>
-    <p>
-      <button type="button"
+                          name="id"
+                          [(ngModel)]="device.location_storage" /></p>
+    <p>Status: <input type="text"
+                          name="name"
+                          [(ngModel)]="device.status" /></p>
+    <p>Detail: <input type="text"
+                          name="description"
+                          [(ngModel)]="device.detail" /></p>
+    <p>Image: <input type="file"(change)="selectFile($event)"><br><br>
+
+      
+      <button type="submit"
                    class="btn btn-primary"
-                   (click)="updateProduct(editedProduct)">Submit</button>
+                   (click)="updateProduct(device.key)">Submit</button>
       <button type="button"
                    class="btn btn-warning"
                    (click)="cancelEdits()">Cancel</button>

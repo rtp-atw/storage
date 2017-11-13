@@ -17,29 +17,32 @@ import { Router } from '@angular/router';
 
 export class ProductComponent implements OnInit {
 
-  products: Product[];
-  productForm: boolean = false;
   editProductForm: boolean = false;
-  isNewForm: boolean;
-  newProduct: any = {};
   editedProduct: any = {};
 
   currentUID: any;
-  datafb : deviceDetail2[];
   devicelist: Observable<any[]>;
- 
+  devicelist2: AngularFireList<any>;
+  
+  file: any; picUrl: any;
+
   constructor(private _productService: ProductService,
     private afAuth: AngularFireAuth,
     public angFire: AngularFireDatabase,
     private router: Router) { 
     
     this.devicelist = angFire.list('/').valueChanges();;
-    var ref = firebase.database().ref('/').key;
-    console.log('ref',ref);
+    this.devicelist2 = angFire.list('/');
+
+    var ref = firebase.database().ref();
+    ref.on('value',function(datasnapshot){
+      var deviceData = datasnapshot.val();
+      console.log('datatest',deviceData);
+
+    });
     }
 
   ngOnInit() {
-    this.getProducts();
     console.log('devicelist',this.devicelist);
 
     this.afAuth.authState.subscribe((auth) => { 
@@ -54,55 +57,43 @@ export class ProductComponent implements OnInit {
     this.router.navigateByUrl('/add');
   }
 
-  getProducts() {
-    this.products = this._productService.getProductsFromData();
-  }
-
-  showEditProductForm(product: Product) {
-    if(!product) {
+  showEditProductForm(deviceID:any) {
+    console.log('key',deviceID);
+    this.editProductForm = true;
+    //this.deviceDetail = clone();
+/*     if(!product) {
       this.productForm = false;
       return;
-    }
-    this.editProductForm = true;
-    this.editedProduct = clone(product);
-  }
-
-  showAddProductForm() {
-    // resets form if edited product
-    if(this.products.length) {
-      this.newProduct = {};
-    }
-    this.productForm = true;
-    this.isNewForm = true;
-  }
-
-  saveProduct(product: Product) {
-    if(this.isNewForm) {
-      // add a new product
-      this._productService.addProduct(product);
-    }
-    this.productForm = false;
+    } */
+    
+    
   }
 
   removeProduct(deviceID:any) {
+    if(deviceID){
+      this.devicelist2.remove(deviceID);
+    }
     console.log('key',deviceID);
     //this._productService.deleteProduct(deviceID);
   }
 
-  updateProduct() {
-    this._productService.updateProduct(this.editedProduct);
-    this.editProductForm = false;
-    this.editedProduct = {};
-  }
-
-  cancelNewProduct() {
-    this.newProduct = {};
-    this.productForm = false;
+  updateProduct(deviceID:any) {
+    console.log('Update',deviceID);   
+    //this.devicelist2.update(deviceID,{deviceDetail});
+    //this._productService.updateProduct(this.editedProduct);
+    //this.editProductForm = false;
+    //this.editedProduct = {};
   }
 
   cancelEdits() {
-    this.editedProduct = {};
+    //this.editedProduct = {};
     this.editProductForm = false;
   }
   
+  selectFile(e:any) {
+    console.log(e);
+    this.file = e.target.files[0]
+}
+
+
 }

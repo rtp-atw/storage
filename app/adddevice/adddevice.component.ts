@@ -5,6 +5,7 @@ import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
+import * as XLSX from 'xlsx';
 
 @Component({
     moduleId: module.id,
@@ -19,12 +20,13 @@ export class AddDevice implements OnInit {
     key: any;
     file: any;
     picUrl: any;
+    data :Array<Array<any>>;
 
     constructor(public angFire: AngularFireDatabase,
         private router: Router) {
     
         this.devicelist = angFire.list('/');
-  
+        //const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(this.data);
     }
 
     ngOnInit() {}
@@ -32,7 +34,6 @@ export class AddDevice implements OnInit {
     XLStoJSON(e: any) {
         var excel = e.target.files[0];
         console.log(excel);
- 
     }
 
     toMain() {
@@ -52,11 +53,13 @@ export class AddDevice implements OnInit {
             this.picUrl = url;      
             console.log('url', this.picUrl);
             this.devicelist.update(key,{
-              imgurl: this.picUrl
+              imgurl: this.picUrl,
+              key: this.key
             });
           });
         });
       }
+      
     saveProduct() {
         var data = this.devicelist.push(this.deviceDetail);
         this.key = data.ref.key;
@@ -64,5 +67,7 @@ export class AddDevice implements OnInit {
 
         this.uploadPhoto(this.key);
     }
+
+    
     
 }  

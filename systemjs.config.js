@@ -17,6 +17,11 @@
     'firebase/database': 'npm:firebase/firebase.js',
     'firebase/auth': 'npm:firebase/firebase.js',
     'firebase/firestore': 'npm:firebase/firebase.js',
+
+    'xlsx': 'npm:xlsx/dist/xlsx.full.min.js', // <-- make sure xlsx.full.min.js is in same dir 'xlsx.full.min.js'
+    'fs': '',     // <--|
+    'crypto': '', // <--| suppress native node modules
+    'stream': ''  // <--|
   };
 
   // packages tells the System loader how to load when no filename and/or no extension
@@ -63,7 +68,11 @@
     firebase: {
       format: 'global',
       exports: 'firebase'
+    },
+    'xlsx': {
+      exports: 'XLSX' // <-- tell SystemJS to expose the XLSX variable
     }
+
   };
 
   var config = {

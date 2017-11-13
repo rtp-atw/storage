@@ -20,5 +20,6 @@ export interface deviceDetail2 {
   location_storage?: number,
   status?: string,
   type?: string,
-  imgurl? : any   
+  imgurl? : any,
+  key?:string   
 }
