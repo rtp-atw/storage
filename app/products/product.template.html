@@ -46,31 +46,31 @@
  
     <p>ID: <input type="text"
                           name="id"
-                          [(ngModel)]="device.id" /></p>
+                          [(ngModel)]="editedProduct.id" /></p>
     <p>Serial: <input type="text"
                           name="name"
-                          [(ngModel)]="device.serialnumber" /></p>
+                          [(ngModel)]="editedProduct.serialnumber" /></p>
     <p>Name: <input type="text"
                           name="description"
-                          [(ngModel)]="device.name" /></p>
+                          [(ngModel)]="editedProduct.name" /></p>
     <p>Import Date: <input type="text"
                           name="location"
-                          [(ngModel)]="device.importdate" /></p>
+                          [(ngModel)]="editedProduct.importdate" /></p>
     <p>Location: <input type="text"
                           name="id"
-                          [(ngModel)]="device.location_storage" /></p>
+                          [(ngModel)]="editedProduct.location_storage" /></p>
     <p>Status: <input type="text"
                           name="name"
-                          [(ngModel)]="device.status" /></p>
+                          [(ngModel)]="editedProduct.status" /></p>
     <p>Detail: <input type="text"
                           name="description"
-                          [(ngModel)]="device.detail" /></p>
+                          [(ngModel)]="editedProduct.detail" /></p>
     <p>Image: <input type="file"(change)="selectFile($event)"><br><br>
 
       
       <button type="submit"
                    class="btn btn-primary"
-                   (click)="updateProduct(device.key)">Submit</button>
+                   (click)="updateProduct(editedProduct.key)">Submit</button>
       <button type="button"
                    class="btn btn-warning"
                    (click)="cancelEdits()">Cancel</button>

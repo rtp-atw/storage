@@ -12,6 +12,7 @@ import { ProductService } from './products/product.service';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { AddDevice } from "./adddevice/adddevice.component";
+import { ImportExcel } from "./importexcel/importexcel.component";
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -47,6 +48,7 @@ export const firebaseConfig = {
                           LoginComponent,
                           RegisterComponent,
                           AddDevice,
+                          ImportExcel,
                           NavbarComponent
                           ],
   providers: [ ProductService ],

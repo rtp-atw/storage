@@ -83,5 +83,8 @@ export class AddDevice implements OnInit {
           counter++;
      }
 }
+    toExcelImport(){
+        this.router.navigateByUrl('/import');
+    }
     
 }  

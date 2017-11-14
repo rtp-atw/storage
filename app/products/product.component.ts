@@ -23,7 +23,7 @@ export class ProductComponent implements OnInit {
   currentUID: any;
   devicelist: Observable<any[]>;
   devicelist2: AngularFireList<any>;
-  
+  editingDevice: deviceDetail2;
   file: any; picUrl: any;
 
   constructor(private _productService: ProductService,
@@ -31,19 +31,18 @@ export class ProductComponent implements OnInit {
     public angFire: AngularFireDatabase,
     private router: Router) { 
     
-    this.devicelist = angFire.list('/').valueChanges();;
+    this.devicelist = angFire.list('/').valueChanges();
     this.devicelist2 = angFire.list('/');
 
     var ref = firebase.database().ref();
     ref.on('value',function(datasnapshot){
       var deviceData = datasnapshot.val();
-      console.log('datatest',deviceData);
+      console.log('datatest',deviceData[0]);
 
     });
     }
 
   ngOnInit() {
-    console.log('devicelist',this.devicelist);
 
     this.afAuth.authState.subscribe((auth) => { 
       this.currentUID = auth.uid;
@@ -57,9 +56,10 @@ export class ProductComponent implements OnInit {
     this.router.navigateByUrl('/add');
   }
 
-  showEditProductForm(deviceID:any) {
-    console.log('key',deviceID);
+  showEditProductForm(deviceKey:any) {
+    console.log('key',deviceKey);
     this.editProductForm = true;
+    this.devicelist.subscribe((items)=> this.editedProduct = items.find(item=>item.key === deviceKey));
     //this.deviceDetail = clone();
 /*     if(!product) {
       this.productForm = false;
