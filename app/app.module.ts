@@ -51,7 +51,7 @@ export const firebaseConfig = {
                           ImportExcel,
                           NavbarComponent
                           ],
-  providers: [ ProductService ],
+  providers: [ ProductService,AddDevice ],
   bootstrap:    [ AppComponent ]
 })
 

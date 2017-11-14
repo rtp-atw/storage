@@ -60,12 +60,19 @@ export class AddDevice implements OnInit {
         });
       }
 
-    saveProduct() {
-        var data = this.devicelist.push(this.deviceDetail);
-        this.key = data.ref.key;
-        console.log(this.key);
+    saveProduct(deviceKey:any,editedProduct:deviceDetail2) {
+        if(deviceKey) {
+            this.devicelist.update(deviceKey,{editedProduct});
+            this.uploadPhoto(deviceKey);
+        }
+        else {
+            var data = this.devicelist.push(this.deviceDetail);
+            this.key = data.ref.key;
+            console.log(this.key);
+            this.uploadPhoto(this.key);
+        }
 
-        this.uploadPhoto(this.key);
+        
     }
 
 

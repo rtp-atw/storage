@@ -5,7 +5,9 @@ import { Component } from '@angular/core';
 import * as XLSX from 'xlsx';
 
 import * as fileSaver from 'file-saver';
-import { log } from 'util';
+import { Router } from '@angular/router';
+import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
+//import { log } from 'util';
 
 type AOA = Array<Array<any>>;
 
@@ -35,6 +37,14 @@ export class ImportExcel {
 	data: AOA = [ [1, 2], [3, 4] ];
 	wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'binary' };
 	fileName: string = 'SheetJS.xlsx';
+    devicelist: AngularFireList<any>;
+
+    constructor(public angFire: AngularFireDatabase,
+        private router: Router) {
+    
+        this.devicelist = angFire.list('/');
+       
+    }
 
 	onFileChange(evt: any) {
 		/* wire up file reader */
@@ -51,22 +61,15 @@ export class ImportExcel {
 			const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
 			/* save data */
-			this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
+            this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
+            console.log(this.data);
+            
 		};
 		reader.readAsBinaryString(target.files[0]);
 	}
 
-	export(): void {
-		/* generate worksheet */
-		const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(this.data);
+    backToMain(){
+        this.router.navigateByUrl('/import');
+    }
 
-		/* generate workbook and add the worksheet */
-		const wb: XLSX.WorkBook = XLSX.utils.book_new();
-		XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
-		/* save to file */
-        const wbout: string = XLSX.write(wb, this.wopts);
-        console.log(fileSaver);
-		saveAs(new Blob([s2ab(wbout)]), this.fileName);
-	}
 }
