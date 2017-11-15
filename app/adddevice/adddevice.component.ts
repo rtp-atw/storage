@@ -45,24 +45,35 @@ export class AddDevice implements OnInit {
     }
 
 
-    uploadPhoto(key:any) {
+    uploadPhoto(deviceKey:any) {
         console.log(this.file);
         this.storageRef.child("Device/" + this.file.name).put(this.file).then((snapshot) => {
           console.log(snapshot);
           this.storageRef.child("Device/" + this.file.name).getDownloadURL().then((url) => {
             this.picUrl = url;      
             console.log('url', this.picUrl);
-            this.devicelist.update(key,{
+            this.devicelist.update(deviceKey,{
               imgurl: this.picUrl,
-              key: this.key
+              key: deviceKey
             });
           });
         });
       }
-
-    saveProduct(deviceKey:any,editedProduct:deviceDetail2) {
+      
+    saveProduct(deviceKey:any,editedProduct:deviceDetail2,newfile:any) {
         if(deviceKey) {
-            this.devicelist.update(deviceKey,{editedProduct});
+            this.devicelist.update(deviceKey,{
+                id: editedProduct.id,
+                serialnumber: editedProduct.serialnumber,
+                name: editedProduct.name,
+                detail: editedProduct.detail,
+                importdate: editedProduct.importdate,
+                location_storage: editedProduct.location_storage,
+                status: editedProduct.status,
+                imgurl : editedProduct.imgurl,
+                key:editedProduct.key  
+            });
+            this.file = newfile;
             this.uploadPhoto(deviceKey);
         }
         else {

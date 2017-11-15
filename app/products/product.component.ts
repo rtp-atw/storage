@@ -77,7 +77,7 @@ export class ProductComponent implements OnInit {
 
     console.log('dataUpdate',editedProduct);
     console.log('keyUpdate',deviceKey);
-    this.addDevice.saveProduct(deviceKey,editedProduct);
+    this.addDevice.saveProduct(deviceKey,editedProduct,this.file);
     //this.devicelist2.update(deviceID,{deviceDetail});
     //this._productService.updateProduct(this.editedProduct);
     this.editProductForm = false;
@@ -92,6 +92,7 @@ export class ProductComponent implements OnInit {
   selectFile(e:any) {
     console.log(e);
     this.file = e.target.files[0]
+    //this.addDevice.selectFile(this.file);
 }
 
 
