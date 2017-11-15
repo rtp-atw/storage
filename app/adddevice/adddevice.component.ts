@@ -103,4 +103,5 @@ export class AddDevice implements OnInit {
         this.router.navigateByUrl('/import');
     }
     
+    
 }  
