@@ -1,49 +1,79 @@
-<form>
-    <div id="dynamicInput">
-        <h2 align="center">Add New Product</h2>
-        <p>ID: <input type="text"
-                              name="id"
-                              [(ngModel)]="deviceDetail.id" /></p>
-        <p>Serial: <input type="text"
-                              name="name"
-                              [(ngModel)]="deviceDetail.serialnumber" /></p>
-        <p>Name: <input type="text"
-                              name="description"
-                              [(ngModel)]="deviceDetail.name" /></p>
-        <p>Import Date: <input type="text"
-                              name="location"
-                              [(ngModel)]="deviceDetail.importdate" /></p>
-        <p>Location: <input type="text"
-                              name="id"
-                              [(ngModel)]="deviceDetail.location_storage" /></p>
-        <p>Status: <input type="text"
-                              name="name"
-                              [(ngModel)]="deviceDetail.status" /></p>
-        <p>Detail: <input type="text"
-                              name="description"
-                              [(ngModel)]="deviceDetail.detail" /></p>
-        <p>Image: <input type="file"(change)="selectFile($event)"><br><br>
-        <p>Excel: <input type="file"(change)="XLStoJSON($event)"><br><br>
-          
-          <button type="submit"
-                       class="btn btn-primary"
-                       (click)="saveProduct()">Submit</button>
-          <button type="button"
-                       class="btn btn-warning"
-                       (click)="toMain()">Cancel</button>
-        </p>
+<form name=addDevice>
+  
+
+  <div class="container">  
+    <h2>Add new product</h2>
+      <div class="row">
+          <div class="col-md-3" *ngFor="let device of deviceDetails; let i = index">
+            <div class="form-group">
+                <label [attr.for]="'id-' + i">ID:</label>
+                <input type="text" class="form-control" [attr.id]="'id-' + i" name='id'[(ngModel)]='device.id'/>
+                
+                <label [attr.for]="'name-' + i">Name:</label>
+                <input type="text" class="form-control" [attr.id]="'name-' + i" name='name' [(ngModel)]='device.name'/>
+                
+                <label [attr.for]="'serialnumber-' + i">Serialnumber:</label>
+                <input type="text" class="form-control" [attr.id]="'serialnumber-' + i" name='serialnumber' [(ngModel)]='device.serialnumber'/>
+                
+                <label [attr.for]="'importdate-' + i">Import Date:</label>
+                <input type="text" class="form-control" [attr.id]="'importdate-' + i" name='importdate' [(ngModel)]='device.importdate'/>
+                
+                <label [attr.for]="'location_storage-' + i">Location:</label>
+                <input type="text" class="form-control" [attr.id]="'location_storage-' + i" name='location_storage' [(ngModel)]='device.location_storage'/>
+                
+                <label [attr.for]="'status-' + i">Status:</label>
+                <input type="text" class="form-control" [attr.id]="'status-' + i" name='status' [(ngModel)]='device.status'/>
+              
+                <label [attr.for]="'detail-' + i">Detail:</label>
+                <input type="text" class="form-control" [attr.id]="'detail-' + i" name='detail' [(ngModel)]='device.detail'/>
+
+                <label [attr.for]="'imgurl-' + i">Image:</label>
+                <input input type='file'(change)='selectFile($event, i)' class="form-control" [attr.id]="'imgurl-' + i" />
+            </div>
+          </div>
       </div>
-      <input type="button" value="Add another text input" (click)="addInput('dynamicInput')">
+    <button type='submit'class='btn btn-primary'(click)='saveProduct()'>Submit</button>
+    <button type='button'class='btn btn-warning'(click)='toMain()'>Cancel</button>
+    <button (click)="toExcelImport()" class='btn btn-primary' >ExcelImport</button>
+    <input class='btn btn-primary'type="button" value="Add another text input" (click)="addInput()">
+  </div>
 </form>
 
-<!-- <form method="POST">
-  <div id="dynamicInput">
-       Entry 1<br><input type="text" name="myInputs[]">
-  </div>
-  <input type="button" value="Add another text input" (click)="addInput('dynamicInput')">
-</form> -->
+    <!-- <div id="dynamicInput">
+        <h2 align="center">Add New Product</h2>
+        <p>ID: <input type='text'
+                              name='id'
+                              [(ngModel)]='deviceDetail.id' /></p>
+        <p>Serial: <input type='text'
+                              name='name'
+                              [(ngModel)]='deviceDetail.serialnumber' /></p>
+        <p>Name: <input type='text'
+                              name='description'
+                              [(ngModel)]='deviceDetail.name' /></p>
+        <p>Import Date: <input type='text'
+                              name='location'
+                              [(ngModel)]='deviceDetail.importdate' /></p>
+        <p>Location: <input type='text'
+                              name='id'
+                              [(ngModel)]='deviceDetail.location_storage' /></p>
+        <p>Status: <input type='text'
+                              name='name'
+                              [(ngModel)]='deviceDetail.status' /></p>
+        <p>Detail: <input type='text'
+                              name='description'
+                              [(ngModel)]='deviceDetail.detail' /></p>
+        <p>Image: <input type='file'(change)='selectFile($event)'><br><br>          
+          <button type='submit'
+                       class='btn btn-primary'
+                       (click)='saveProduct()'>Submit</button>
+          <button type='button'
+                       class='btn btn-warning'
+                       (click)='toMain()'>Cancel</button>
+          <button (click)="toExcelImport()" >ExcelImport</button>
+        </p>
+      </div> -->
 
-<button (click)="toExcelImport()" >Back</button>
+
     
 
  

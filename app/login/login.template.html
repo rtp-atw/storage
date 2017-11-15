@@ -1,17 +1,22 @@
 <form>
-    <h2 align="center">LoginPage</h2>
-    <p align="center">Email: <input type="email"
-                           name="id"
-                           [(ngModel)]="user.id" /></p>
-    <p align="center">Password: <input type="password"
-                                 name="name"
-                                 [(ngModel)]="user.password" /></p>
-    <p>
-      <button type="button"
-                   class="btn btn-primary"
-                   (click)="login(user)">Login</button>
-      <button type="button"
-                   class="btn btn-warning"
-                   (click)="register()">Singup</button>
-    </p>
+    <div class="container">
+        <h2 align="center">LoginPage</h2>
+        <p align="center">Email: <input type="email"
+                            name="id"
+                            [(ngModel)]="user.id" /></p>
+        <p align="center">Password: <input type="password"
+                                    name="name"
+                                    [(ngModel)]="user.password" /></p>
+        
+        <div class="wrapper">          
+        <p>    
+            <button id=btnlogin type="button"
+                        class="btn btn-primary"
+                        (click)="login(user)">Login</button>
+            <button id=btnlogin type="button"
+                        class="btn btn-warning"
+                        (click)="register()">Singup</button>
+        </p>
+    </div>
+    </div>
 </form>

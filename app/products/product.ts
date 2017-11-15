@@ -12,14 +12,15 @@ export enum DeviceStatus { //DeviceStatus.good/bad
 }
 
 export interface deviceDetail2 {
-  id: number,
-  serialnumber?: number,
-  name?: string,
-  detail?: string,
-  importdate?: string,
-  location_storage?: number,
-  status?: string,
-  type?: string,
-  imgurl? : any,
-  key?:string   
+  id?: number;
+  serialnumber?: number;
+  name?: string;
+  detail?: string;
+  importdate?: string;
+  location_storage?: number;
+  status?: string;
+  type?: string;
+  imgurl? : any;
+  key?:string;
+  file?: any;
 }

@@ -35,14 +35,8 @@ export class ProductComponent implements OnInit {
     private addDevice : AddDevice) { 
     
     this.devicelist = angFire.list('/').valueChanges();
-    //this.devicelist2 = angFire.list('/');
+    this.devicelist2 = angFire.list('/');
 
-/*     var ref = firebase.database().ref();
-    ref.on('value',function(datasnapshot){
-      var deviceData = datasnapshot.val();
-      console.log('datatest',deviceData);
-
-    }); */
     }
 
   ngOnInit() {
@@ -69,6 +63,7 @@ export class ProductComponent implements OnInit {
   removeProduct(deviceKey:any) {
     if(deviceKey){
       this.devicelist2.remove(deviceKey);
+      //this.devicelist2.remove(deviceKey);
     }
     console.log('key',deviceKey);
   }
@@ -78,14 +73,11 @@ export class ProductComponent implements OnInit {
     console.log('dataUpdate',editedProduct);
     console.log('keyUpdate',deviceKey);
     this.addDevice.saveProduct(deviceKey,editedProduct,this.file);
-    //this.devicelist2.update(deviceID,{deviceDetail});
-    //this._productService.updateProduct(this.editedProduct);
+    
     this.editProductForm = false;
-    //this.editedProduct = {};
   }
 
   cancelEdits() {
-    //this.editedProduct = {};
     this.editProductForm = false;
   }
   

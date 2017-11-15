@@ -1,45 +1,47 @@
 <div class="container">
   <div class="col-md-12">
     <h1>Product List</h1>
+    <div class="table-responsive">
       <table class="table table-bordered table-striped table-hover">
-    <thead>
-      <tr>
-        <th class="text-center">ID</th>
-        <th class="text-center">Serial Number</th>
-        <th class="text-center">Name</th>
-        <th class="text-center">Detail</th>
-        <th class="text-center">Location</th>
-        <th class="text-center">Import Date</th>
-        <th class="text-center">Status</th>
-        <th class="text-center">Photo</th>
-        <th class="text-center">&nbsp;</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let device of devicelist | async">
-        <td>{{ device.id }}</td>
-        <td>{{ device.serialnumber }}</td>
-        <td>{{ device.name }}</td>
-        <td>{{ device.detail }}</td>
-        <td>{{ device.location_storage}}</td>
-        <td>{{ device.importdate}}</td>  
-        <td>{{ device.status }}</td>
-        <td>{{ device.imgurl }}</td>
-        <td>
-          <button class="btn btn-info"
-                        (click)="showEditProductForm(device.key)">
-                       <i class="fa fa-edit"></i>
-              </button>
-          <button class="btn btn-danger"
-                       (click)="removeProduct(device.key)">
-                       <i class="fa fa-minus"></i>
-            </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        <thead>
+          <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Serial Number</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Detail</th>
+            <th class="text-center">Location</th>
+            <th class="text-center">Import Date</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Photo</th>
+            <th class="text-center">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let device of devicelist | async">
+            <td>{{ device.id }}</td>
+            <td>{{ device.serialnumber }}</td>
+            <td>{{ device.name }}</td>
+            <td>{{ device.detail }}</td>
+            <td>{{ device.location_storage}}</td>
+            <td>{{ device.importdate}}</td>  
+            <td>{{ device.status }}</td>
+            <td><img [src]="device.imgurl"></td>
+            <td>
+              <button class="btn btn-info"
+                            (click)="showEditProductForm(device.key)">
+                          <i class="fa fa-edit"></i>
+                  </button>
+              <button class="btn btn-danger"
+                          (click)="removeProduct(device.key)">
+                          <i class="fa fa-minus"></i>
+                </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   
-  <button (click)="toAddDevice()" >Add Device</button>
+  <button (click)="toAddDevice()" class='btn btn-primary' >Add Device</button>
 
    <form *ngIf="editProductForm">
     <h2>Edit Product Details</h2>

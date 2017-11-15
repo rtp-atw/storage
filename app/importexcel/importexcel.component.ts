@@ -7,6 +7,7 @@ import * as XLSX from 'xlsx';
 import * as fileSaver from 'file-saver';
 import { Router } from '@angular/router';
 import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
+import { log } from 'util';
 //import { log } from 'util';
 
 type AOA = Array<Array<any>>;
@@ -21,15 +22,21 @@ function s2ab(s: string): ArrayBuffer {
 @Component({
 	selector: 'sheetjs',
 	template: `
-	<input type="file" (change)="onFileChange($event)" multiple="false" />
-	<table class="sjs-table">
-		<tr *ngFor="let row of data">
-			<td *ngFor="let val of row">
-				{{val}}
-			</td>
-		</tr>
-	</table>
-	<button (click)="export()">Export!</button>
+	<div class="container">
+    
+		<input type="file" (change)="onFileChange($event)" multiple="false" />
+			<div class="container">
+				<table class="sjs-table">
+					<tr *ngFor="let row of data">
+						<td *ngFor="let val of row">
+							{{val}}
+						</td>
+					</tr>
+				</table>
+			</div>
+		<button class='btn btn-primary' (click)="uploadToFirebase(data)">Upload</button>
+		<button class='btn btn-primary' (click)="backToMain()">Back</button>
+	</div>
 	`
 })
 
@@ -62,14 +69,22 @@ export class ImportExcel {
 
 			/* save data */
             this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
-            console.log(this.data);
+            console.log('dataex',this.data[0]);
             
 		};
 		reader.readAsBinaryString(target.files[0]);
 	}
 
+	uploadToFirebase(data:any){
+		for(let i = 0;i !== data.length ;++i){
+			console.log('index',i);
+			this.devicelist.push(data[i]);
+			
+		}
+	}
+
     backToMain(){
-        this.router.navigateByUrl('/import');
+        this.router.navigateByUrl('/');
     }
 
 }

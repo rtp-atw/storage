@@ -1,14 +1,16 @@
 <form>
-    <h2 align="center">RegisterPage</h2>
-    <p align="center">Email: <input type="email"
-                           name="id"
-                           [(ngModel)]="user.id" /></p>
-    <p align="center">Password: <input type="password"
-                                 name="name"
-                                 [(ngModel)]="user.password" /></p>
-    <p>
-      <button type="button"
-                   class="btn btn-warning"
-                   (click)="register(user)">Register</button>
-    </p>
+    <div class="container">
+        <h2 align="center">RegisterPage</h2>
+        <p align="center">Email: <input type="email"
+                            name="id"
+                            [(ngModel)]="user.id" /></p>
+        <p align="center">Password: <input type="password"
+                                    name="name"
+                                    [(ngModel)]="user.password" /></p>
+        <p>
+        <button id=btnlogin type="button"
+                    class="btn btn-warning"
+                    (click)="register(user)">Register</button>
+        </p>
+    </div>
 </form>
