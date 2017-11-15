@@ -10,7 +10,9 @@ export enum DeviceStatus { //DeviceStatus.good/bad
   good = 1,
   bad = 0
 }
-
+export interface Answers {
+  whatsUp: string;
+}
 export interface deviceDetail2 {
   id?: number;
   serialnumber?: number;

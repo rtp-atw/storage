@@ -94,6 +94,9 @@ export class AddDevice implements OnInit {
         if(this.deviceDetails.length <3){
             this.deviceDetails.push({});
         }
+        else{
+            alert("Limite");
+        }
         
     }   
     toExcelImport(){

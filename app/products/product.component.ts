@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
-import { Product,deviceDetail2 } from './product';
+import { Product,deviceDetail2,Answers } from './product';
 import { clone } from 'lodash';
 import { AddDevice } from "../adddevice/adddevice.component";
 
@@ -9,7 +9,7 @@ import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
-//import { log } from 'util';
+import { prompt, list } from 'typed-prompts'
 
 
 @Component({
@@ -73,7 +73,7 @@ export class ProductComponent implements OnInit {
     console.log('dataUpdate',editedProduct);
     console.log('keyUpdate',deviceKey);
     this.addDevice.saveProduct(deviceKey,editedProduct,this.file);
-    
+
     this.editProductForm = false;
   }
 
@@ -86,6 +86,24 @@ export class ProductComponent implements OnInit {
     this.file = e.target.files[0]
     //this.addDevice.selectFile(this.file);
 }
+
+
+  
+test(){
+ 
+ /*  prompt<Answers>([
+  list('whatsUp', 'What is up?', [
+    'the sky',
+    'the stars',
+    'the ceiling'
+  ])
+])
+.then((answers) => {
+  console.log(answers.whatsUp); // 'the sky'
+}) */
+}
+
+ 
 
 
 }

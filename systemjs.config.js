@@ -19,7 +19,8 @@
     'firebase/firestore': 'npm:firebase/firebase.js',
 
     'file-saver' : 'npm:file-saver/FileSaver.min.js',
-
+    
+    'typed-prompts' : 'npm:typed-prompts/lib/inquirer.js',
     'xlsx': 'npm:xlsx/dist/xlsx.full.min.js', // <-- make sure xlsx.full.min.js is in same dir 'xlsx.full.min.js'
     'fs': '',     // <--|
     'crypto': '', // <--| suppress native node modules
