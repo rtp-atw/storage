@@ -21,9 +21,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { HttpModule } from '@angular/http';
 
-import { NguiPopupModule,NguiPopupComponent,NguiMessagePopupComponent, } from '@ngui/popup';
-import { Ng2OverlayManager } from "ng2-overlay";
-
 export const firebaseConfig = {
   production: false,
   firebase: {
@@ -54,7 +51,7 @@ export const firebaseConfig = {
                           ImportExcel,
                           NavbarComponent
                           ],
-  providers: [ ProductService,AddDevice,NguiPopupComponent,NguiMessagePopupComponent,NguiPopupModule,Ng2OverlayManager ],
+  providers: [ ProductService,AddDevice],
   bootstrap:    [ AppComponent ]
 })
 

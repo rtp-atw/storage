@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit {
   appName: string = "Angular Boilerplate";
-
+  
   constructor(private afAuth: AngularFireAuth,
     private router: Router) {}
 

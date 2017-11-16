@@ -17,14 +17,10 @@
     'firebase/database': 'npm:firebase/firebase.js',
     'firebase/auth': 'npm:firebase/firebase.js',
     'firebase/firestore': 'npm:firebase/firebase.js',
+    'file-saver' : 'npm:file-saver/FileSaver.min.js', 
 
-    'file-saver' : 'npm:file-saver/FileSaver.min.js',
-
-    '@ngui/popup' : 'node_modules/@ngui/popup/dist/popup.umd.js',
-
-    'ng2-overlay' : 'node_modules/ng2-overlay/dist/ng2-overlay.umd.js',
-    
     'typed-prompts' : 'npm:typed-prompts/lib/inquirer.js',
+    
     'xlsx': 'npm:xlsx/dist/xlsx.full.min.js', // <-- make sure xlsx.full.min.js is in same dir 'xlsx.full.min.js'
     'fs': '',     // <--|
     'crypto': '', // <--| suppress native node modules

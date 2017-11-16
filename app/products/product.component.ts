@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 @Component({
     moduleId: module.id,
     templateUrl: 'product.template.html',
+    
 })
 
 export class ProductComponent implements OnInit {
@@ -30,7 +31,7 @@ export class ProductComponent implements OnInit {
     private afAuth: AngularFireAuth,
     public angFire: AngularFireDatabase,
     private router: Router,
-    private addDevice : AddDevice) { 
+    private addDevice : AddDevice,) { 
     
     this.devicelist = angFire.list('/').valueChanges();
     this.devicelist2 = angFire.list('/');
@@ -84,9 +85,5 @@ export class ProductComponent implements OnInit {
     this.file = e.target.files[0]
     //this.addDevice.selectFile(this.file);
   }
-  test(){
-    
-  }
- 
 
 }
