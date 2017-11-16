@@ -64,11 +64,15 @@ export class ProductComponent implements OnInit {
   }
 
   removeProduct(deviceKey:any) {
-    if(deviceKey){
-      this.devicelist2.remove(deviceKey);
-      //this.devicelist2.remove(deviceKey);
-    }
-    console.log('key',deviceKey);
+    if (confirm('Are you sure you want to delete this device?')) {
+      if(deviceKey){
+        this.devicelist2.remove(deviceKey);
+      }
+      console.log('key',deviceKey);
+    } 
+    else {
+      console.log('back');
+    }  
   }
 
   updateProduct(deviceKey:any,editedProduct:deviceDetail2) {
@@ -90,15 +94,4 @@ export class ProductComponent implements OnInit {
     //this.addDevice.selectFile(this.file);
   }
 
-    test(){
-      prompt();
-/*       prompt([
-        confirm('test','test',{
-          when: true,
-          default: false
-        })
-      ]).then((ans:any)=>{
-        console.log(ans);
-      });  */     
-    }
 }
