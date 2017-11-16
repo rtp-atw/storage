@@ -9,16 +9,14 @@ import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
-import { prompt, list } from 'typed-prompts'
-
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'product.template.html'
+    templateUrl: 'product.template.html',
 })
 
 export class ProductComponent implements OnInit {
-
+  
   editProductForm: boolean = false;
   editedProduct: any = {};
 
@@ -85,25 +83,10 @@ export class ProductComponent implements OnInit {
     console.log(e);
     this.file = e.target.files[0]
     //this.addDevice.selectFile(this.file);
-}
-
-
-  
-test(){
+  }
+  test(){
+    
+  }
  
- /*  prompt<Answers>([
-  list('whatsUp', 'What is up?', [
-    'the sky',
-    'the stars',
-    'the ceiling'
-  ])
-])
-.then((answers) => {
-  console.log(answers.whatsUp); // 'the sky'
-}) */
-}
-
- 
-
 
 }
