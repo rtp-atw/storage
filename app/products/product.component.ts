@@ -10,6 +10,10 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
+//import { prompt, list ,confirm } from 'typed-prompts'
+
+
+
 @Component({
     moduleId: module.id,
     templateUrl: 'product.template.html',
@@ -86,4 +90,15 @@ export class ProductComponent implements OnInit {
     //this.addDevice.selectFile(this.file);
   }
 
+    test(){
+      prompt();
+/*       prompt([
+        confirm('test','test',{
+          when: true,
+          default: false
+        })
+      ]).then((ans:any)=>{
+        console.log(ans);
+      });  */     
+    }
 }
