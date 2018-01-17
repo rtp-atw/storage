@@ -8,6 +8,13 @@
     'rxjs': 'node_modules/rxjs',
     'lodash': 'node_modules/lodash',
 
+     // ...
+    '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
+    // CDK individual packages
+    '@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
+    '@angular/cdk/a11y': 'npm:@angular/cdk/bundles/cdk-a11y.umd.js',
+    // ...
+  
     'angularfire2' : 'npm:angularfire2/bundles/core.umd.js',
     'angularfire2/database' : 'npm:angularfire2/bundles/database.umd.js',
     'angularfire2/auth': 'npm:angularfire2/bundles/auth.umd.js',
@@ -33,7 +40,6 @@
     'rxjs': { defaultExtension: 'js' },
     'lodash': { main: 'index.js', defaultExtension: 'js' }
   };
-
 
   var ngPackageNames = [
     'common',

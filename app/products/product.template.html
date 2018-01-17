@@ -47,26 +47,26 @@
     <h2>Edit Product Details</h2>
  
     <p>ID: <input type="text"
-                          name="id"
+                          name="ID"
                           [(ngModel)]="editedProduct.id" /></p>
     <p>Serial: <input type="text"
-                          name="name"
+                          name="Serial Number"
                           [(ngModel)]="editedProduct.serialnumber" /></p>
     <p>Name: <input type="text"
-                          name="description"
+                          name="Name"
                           [(ngModel)]="editedProduct.name" /></p>
-    <p>Import Date: <input type="text"
-                          name="location"
-                          [(ngModel)]="editedProduct.importdate" /></p>
-    <p>Location: <input type="text"
-                          name="id"
-                          [(ngModel)]="editedProduct.location_storage" /></p>
-    <p>Status: <input type="text"
-                          name="name"
-                          [(ngModel)]="editedProduct.status" /></p>
     <p>Detail: <input type="text"
-                          name="description"
+                          name="Detail"
                           [(ngModel)]="editedProduct.detail" /></p>
+    <p>Location: <input type="text"
+                          name="Location"
+                          [(ngModel)]="editedProduct.location_storage" /></p>
+    <p>Import Date: <input type="text"
+                          name="Import Date<"
+                          [(ngModel)]="editedProduct.importdate" /></p>
+<!--     <p>Detail: <input type="text"
+                          name="description"
+                          [(ngModel)]="editedProduct.detail" /></p> -->
     <p>Image: <input type="file"(change)="selectFile($event)"><br><br>
 
       
@@ -80,7 +80,8 @@
    </form>
   </div>
 </div>
-<button type="button" class="btn btn-warning" (click)="test()">test</button>
+<button (click)="openDialog()"></button>
+<!-- <button type="button" class="btn btn-warning" (click)="test()">test</button> -->
 
 <!-- <div class="container">
   <div class="col-md-12">
