@@ -70,7 +70,7 @@ export class ImportExcel {
 			/* save data */
 			this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
 			
-            console.log('dataex',this.data[0]);
+            console.log('dataex',this.data[7]);//for เลือกเอา i กำหนด
             
 		};
 		reader.readAsBinaryString(target.files[0]);
