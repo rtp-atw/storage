@@ -10,7 +10,8 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
-//import { prompt, list ,confirm } from 'typed-prompts'
+import {MatDialog, MatDialogRef} from '@angular/material';
+import {Dialog} from '../popups/popups.component';
 
 
 
@@ -31,11 +32,15 @@ export class ProductComponent implements OnInit {
   editingDevice: deviceDetail2;
   file: any; picUrl: any;
 
+  title = 'popup app';
+  dialogRef: MatDialogRef<Dialog>;
+
   constructor(private _productService: ProductService,
     private afAuth: AngularFireAuth,
     public angFire: AngularFireDatabase,
     private router: Router,
-    private addDevice : AddDevice,) { 
+    private addDevice : AddDevice,
+    public dialog: MatDialog,) { 
     
     this.devicelist = angFire.list('/').valueChanges();
     this.devicelist2 = angFire.list('/');
@@ -51,6 +56,12 @@ export class ProductComponent implements OnInit {
     });    
   }
 
+  openDialog(){
+    this.dialogRef = this.dialog.open(Dialog);
+    this.dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+    })
+  }
 
   toAddDevice() {
     this.router.navigateByUrl('/add');
