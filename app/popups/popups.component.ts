@@ -1,12 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material';
+import { Component,Inject} from '@angular/core';
+import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 
 @Component({
-  selector: 'my-dialog',
-  templateUrl: 'popups.component.html',
+  moduleId: module.id,
+  //selector: 'my-dialog',
+  templateUrl: 'popups.template.html',
   //styleUrls: ['popups.component.css']
 })
-export class DialogComponent {
-  constructor(public dialogRef: MatDialogRef<DialogComponent>){}
+
+export class DialogOverview {
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverview>,
+    /* @Inject(MAT_DIALOG_DATA) public data: any */) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

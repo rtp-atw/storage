@@ -7,13 +7,32 @@
     '@angular': 'node_modules/@angular',
     'rxjs': 'node_modules/rxjs',
     'lodash': 'node_modules/lodash',
-
      // ...
     '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
     // CDK individual packages
     '@angular/cdk/platform': 'npm:@angular/cdk/bundles/cdk-platform.umd.js',
     '@angular/cdk/a11y': 'npm:@angular/cdk/bundles/cdk-a11y.umd.js',
     // ...
+    '@angular/common/http': 'npm:@angular/common/bundles/common-http.umd.js',
+    'tslib': 'npm:tslib/tslib.js',
+
+    '@angular/cdk/bidi': 'npm:/@angular/cdk/bundles/cdk-bidi.umd.js', 
+    '@angular/cdk/keycodes': 'npm:/@angular/cdk/bundles/cdk-keycodes.umd.js', 
+    '@angular/cdk/coercion': 'npm:/@angular/cdk/bundles/cdk-coercion.umd.js', 
+    '@angular/cdk/overlay': 'npm:/@angular/cdk/bundles/cdk-overlay.umd.js', 
+    '@angular/cdk/portal':'npm:/@angular/cdk/bundles/cdk-portal.umd.js', 
+    '@angular/cdk/collections': 'npm:/@angular/cdk/bundles/cdk-collections.umd.js', 
+    '@angular/cdk/observers': 'npm:/@angular/cdk/bundles/cdk-observers.umd.js', 
+    '@angular/cdk/accordion': 'npm:/@angular/cdk/bundles/cdk-accordion.umd.js',
+    '@angular/cdk/scrolling': 'npm:/@angular/cdk/bundles/cdk-scrolling.umd.js',
+    '@angular/cdk/layout': 'npm:/@angular/cdk/bundles/cdk-layout.umd.js',
+    '@angular/cdk/rxjs': 'npm:/@angular/cdk/bundles/cdk-rxjs.umd.js',
+    '@angular/cdk/table': 'npm:/@angular/cdk/bundles/cdk-table.umd.js',   
+    '@angular/cdk/stepper': 'npm:/@angular/cdk/bundles/cdk-stepper.umd.js',
+    
+    '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
+    '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
+    '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',   
   
     'angularfire2' : 'npm:angularfire2/bundles/core.umd.js',
     'angularfire2/database' : 'npm:angularfire2/bundles/database.umd.js',
@@ -71,6 +90,7 @@
 
   var paths = {
     'npm:': 'node_modules/'
+    
   };
 
   var meta = {

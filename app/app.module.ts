@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './products/product.component';
 import { NavbarComponent } from './nav/nav.component';
-
+import { DialogOverview } from "./popups/popups.component";
 import { ProductService } from './products/product.service';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
@@ -20,6 +20,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { HttpModule } from '@angular/http';
+
+import { MatDialogModule } from '@angular/material';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const firebaseConfig = {
   production: false,
@@ -42,6 +46,8 @@ export const firebaseConfig = {
                    AngularFireAuthModule,
                    AngularFireDatabaseModule,
                    HttpModule,
+                   MatDialogModule,
+                   BrowserAnimationsModule
                    ],
   declarations: [ AppComponent,
                           ProductComponent,
@@ -49,10 +55,14 @@ export const firebaseConfig = {
                           RegisterComponent,
                           AddDevice,
                           ImportExcel,
-                          NavbarComponent
+                          NavbarComponent,
+                          DialogOverview
                           ],
   providers: [ ProductService,AddDevice],
-  bootstrap:    [ AppComponent ]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogOverview 
+]
 })
 
 export class AppModule { }

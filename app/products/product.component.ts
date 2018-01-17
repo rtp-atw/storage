@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product,deviceDetail2,Answers } from './product';
-import { clone } from 'lodash';
 import { AddDevice } from "../adddevice/adddevice.component";
 
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -10,8 +9,9 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
-import {MatDialog, MatDialogRef} from '@angular/material';
-import {DialogComponent} from '../popups/popups.component';
+import {MatDialog,MAT_DIALOG_DATA} from '@angular/material';
+
+import {DialogOverview} from '../popups/popups.component';
 
 
 
@@ -32,14 +32,13 @@ export class ProductComponent implements OnInit {
   editingDevice: deviceDetail2;
   file: any; picUrl: any;
 
-  dialogRef: MatDialogRef<DialogComponent>;
-
   constructor(private _productService: ProductService,
     private afAuth: AngularFireAuth,
     public angFire: AngularFireDatabase,
     private router: Router,
     private addDevice : AddDevice,
-    public dialog: MatDialog,) { 
+    public dialog: MatDialog,
+    ) { 
     
     this.devicelist = angFire.list('/').valueChanges();
     this.devicelist2 = angFire.list('/');
@@ -55,12 +54,15 @@ export class ProductComponent implements OnInit {
     });    
   }
 
-  openDialog(){
-    this.dialogRef = this.dialog.open(DialogComponent);
-    this.dialogRef.afterClosed().subscribe((result) => {
+   openDialog(){
+    let dialogRef = this.dialog.open(DialogOverview/* ,{
+      width: '250px',
+      data: { name: 'this.name', animal: 'this.animal' }
+    } */);
+    dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
     })
-  }
+  } /////----
 
   toAddDevice() {
     this.router.navigateByUrl('/add');
