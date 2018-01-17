@@ -54,11 +54,11 @@ export class ProductComponent implements OnInit {
     });    
   }
 
-   openDialog(){
-    let dialogRef = this.dialog.open(DialogOverview/* ,{
+  openDialog(deviceKey: any): void {
+    console.log(deviceKey);
+    let dialogRef = this.dialog.open(DialogOverview, {
       width: '250px',
-      data: { name: 'this.name', animal: 'this.animal' }
-    } */);
+      data: deviceKey });
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
     })

@@ -60,9 +60,9 @@ export const firebaseConfig = {
                           ],
   providers: [ ProductService,AddDevice],
   bootstrap: [AppComponent],
-  entryComponents: [
+/*   entryComponents: [
     DialogOverview 
-]
+] */
 })
 
 export class AppModule { }

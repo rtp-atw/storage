@@ -1,19 +1,35 @@
-<h3>Please Enter Info: </h3>
-<!-- <div>
-  <label>Nickname</label>
-  <br>
-  <md-input-container>
-  <input mdInput type="text" #ncknm >
-</md-input-container>
-  <br>
+<form>
+  <h3>Please Enter Info: </h3>
+  <h2>Edit Product Details</h2>
+  
+  <p>ID: <input type="text"
+                        name="ID"
+                        [(ngModel)]="editedProduct.id" /></p>
+  <p>Serial: <input type="text"
+                        name="Serial Number"
+                        [(ngModel)]="editedProduct.serialnumber" /></p>
+  <p>Name: <input type="text"
+                        name="Name"
+                        [(ngModel)]="editedProduct.name" /></p>
+  <p>Detail: <input type="text"
+                        name="Detail"
+                        [(ngModel)]="editedProduct.detail" /></p>
+  <p>Location: <input type="text"
+                        name="Location"
+                        [(ngModel)]="editedProduct.location_storage" /></p>
+  <p>Import Date: <input type="text"
+                        name="Import Date"
+                        [(ngModel)]="editedProduct.importdate" /></p>
+  <p>Image: <input type="file"(change)="selectFile($event)"><br><br>
 
-  <label>Student Id</label>
-  <br>
-  <md-input-container>
-  <input mdInput type="password" #stID >
-</md-input-container>
-</div>
-<div md-dialog-actions>
-  <button md-button class="popup-btn" (click)="dialogRef.close({ncknm: ncknm.value, stID: stID.value})">Submit</button>
-</div>
-<p id="err">{{errorMsg}}</p> -->
+    
+    <button type="submit"
+                class="btn btn-primary"
+                (click)="updateProduct(editedProduct.key,editedProduct)">Submit</button>
+    <button type="button"
+                class="btn btn-warning"
+                (click)="onNoClick()">Cancel</button>
+  </p>
+</form>
+
+<!-- <button type="button" class="btn btn-warning" (click)="onNoClick()">Cancel</button> -->

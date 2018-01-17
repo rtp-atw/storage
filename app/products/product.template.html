@@ -28,7 +28,7 @@
             <td><img [src]="device.imgurl"></td>
             <td>
               <button class="btn btn-info"
-                            (click)="showEditProductForm(device.key)">
+                            (click)="openDialog(device.key)">
                           <i class="fa fa-edit"></i>
                   </button>
               <button class="btn btn-danger"
@@ -43,7 +43,7 @@
   
   <button (click)="toAddDevice()" class='btn btn-primary' >Add Device</button>
 
-   <form *ngIf="editProductForm">
+<!--    <form *ngIf="editProductForm">
     <h2>Edit Product Details</h2>
  
     <p>ID: <input type="text"
@@ -64,9 +64,9 @@
     <p>Import Date: <input type="text"
                           name="Import Date<"
                           [(ngModel)]="editedProduct.importdate" /></p>
-<!--     <p>Detail: <input type="text"
+    <p>Detail: <input type="text"
                           name="description"
-                          [(ngModel)]="editedProduct.detail" /></p> -->
+                          [(ngModel)]="editedProduct.detail" /></p>
     <p>Image: <input type="file"(change)="selectFile($event)"><br><br>
 
       
@@ -77,101 +77,6 @@
                    class="btn btn-warning"
                    (click)="cancelEdits()">Cancel</button>
     </p>
-   </form>
+   </form> -->
   </div>
 </div>
-<button (click)="openDialog()">popup</button>
-<!-- <button type="button" class="btn btn-warning" (click)="test()">test</button> -->
-
-<!-- <div class="container">
-  <div class="col-md-12">
-    <h1>Product List</h1>
-      <table class="table table-bordered table-striped table-hover">
-    <thead>
-      <tr>
-        <th class="text-center">ID</th>
-        <th class="text-center">Serial Number</th>
-        <th class="text-center">Name</th>
-        <th class="text-center">Detail</th>
-        <th class="text-center">Location</th>
-        <th class="text-center">Import Date</th>
-        <th class="text-center">Status</th>
-        <th class="text-center">Photo</th>
-        <th class="text-center">&nbsp;</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{ product.id }}</td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.location}}</td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.status }}</td>
-        <td>
-          <button class="btn btn-info"
-                        (click)="showEditProductForm(product)">
-                       <i class="fa fa-edit"></i>
-              </button>
-          <button class="btn btn-danger"
-                       (click)="removeProduct(product)">
-                       <i class="fa fa-minus"></i>
-            </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <button class="btn btn-success"
-               (click)="showAddProductForm()"><i class="fa fa-plus"></i></button>
-  <br />
-  <br />
-
-  <form *ngIf="productForm">
-    <h2>Add New Product</h2>
-    <p>ID: <input type="text"
-                           name="id"
-                           [(ngModel)]="newProduct.id" /></p>
-    <p>Name: <input type="text"
-                                 name="name"
-                                 [(ngModel)]="newProduct.name" /></p>
-    <p>Description: <input type="text"
-                                          name="description"
-                                          [(ngModel)]="newProduct.description" /></p>
-    <p>Location: <input type="text"
-                                name="location"
-                                [(ngModel)]="newProduct.location" /></p>
-    <p>
-      <button type="button"
-                   class="btn btn-primary"
-                   (click)="saveProduct(newProduct)">Submit</button>
-      <button type="button"
-                   class="btn btn-warning"
-                   (click)="cancelNewProduct()">Cancel</button>
-    </p>
-   </form>
-
-    <form *ngIf="editProductForm">
-    <h2>Edit Product Details</h2>
-    <p>ID: <input type="text"
-                           name="id"
-                           [(ngModel)]="editedProduct.id" /></p>
-    <p>Name: <input type="text"
-                                 name="name"
-                                 [(ngModel)]="editedProduct.name" /></p>
-    <p>Description: <input type="text"
-                                          name="description"
-                                          [(ngModel)]="editedProduct.description" /></p>
-    <p>Location: <input type="text"
-                                name="location"
-                                [(ngModel)]="editedProduct.location" /></p>
-    <p>
-      <button type="button"
-                   class="btn btn-primary"
-                   (click)="updateProduct(editedProduct)">Submit</button>
-      <button type="button"
-                   class="btn btn-warning"
-                   (click)="cancelEdits()">Cancel</button>
-    </p>
-   </form>
-  </div>
-</div> -->
