@@ -11,7 +11,7 @@ import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
 import {MatDialog, MatDialogRef} from '@angular/material';
-import {Dialog} from '../popups/popups.component';
+import {DialogComponent} from '../popups/popups.component';
 
 
 
@@ -32,8 +32,7 @@ export class ProductComponent implements OnInit {
   editingDevice: deviceDetail2;
   file: any; picUrl: any;
 
-  title = 'popup app';
-  dialogRef: MatDialogRef<Dialog>;
+  dialogRef: MatDialogRef<DialogComponent>;
 
   constructor(private _productService: ProductService,
     private afAuth: AngularFireAuth,
@@ -57,7 +56,7 @@ export class ProductComponent implements OnInit {
   }
 
   openDialog(){
-    this.dialogRef = this.dialog.open(Dialog);
+    this.dialogRef = this.dialog.open(DialogComponent);
     this.dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
     })

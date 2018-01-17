@@ -5,7 +5,6 @@ import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
-import { log } from 'util';
 
 @Component({
     moduleId: module.id,
