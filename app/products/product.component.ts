@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from './product.service';
 import { Product,deviceDetail2,Answers } from './product';
 import { AddDevice } from "../adddevice/adddevice.component";
 
@@ -10,10 +9,7 @@ import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
 import {MatDialog,MAT_DIALOG_DATA} from '@angular/material';
-
 import {DialogOverview} from '../popups/popups.component';
-
-
 
 @Component({
     moduleId: module.id,
@@ -32,7 +28,7 @@ export class ProductComponent implements OnInit {
   editingDevice: deviceDetail2;
   file: any; picUrl: any;
 
-  constructor(private _productService: ProductService,
+  constructor(
     private afAuth: AngularFireAuth,
     public angFire: AngularFireDatabase,
     private router: Router,
@@ -46,7 +42,6 @@ export class ProductComponent implements OnInit {
     }
 
   ngOnInit() {
-
     this.afAuth.authState.subscribe((auth) => { 
       this.currentUID = auth.uid;
       console.log(this.currentUID);
@@ -62,17 +57,10 @@ export class ProductComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
     })
-  } /////----
+  } 
 
   toAddDevice() {
     this.router.navigateByUrl('/add');
-  }
-
-  showEditProductForm(deviceKey:any) {
-    console.log('key',deviceKey);
-    this.editProductForm = true;
-    this.devicelist.subscribe((items)=> this.editedProduct = items.find(item=>item.key === deviceKey));   
-    
   }
 
   removeProduct(deviceKey:any) {
@@ -95,15 +83,10 @@ export class ProductComponent implements OnInit {
 
     this.editProductForm = false;
   }
-
-  cancelEdits() {
-    this.editProductForm = false;
-  }
   
   selectFile(e:any) {
     console.log(e);
     this.file = e.target.files[0]
-    //this.addDevice.selectFile(this.file);
   }
 
 }

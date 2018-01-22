@@ -84,7 +84,6 @@ export class ImportExcel {
 		}
 	}
 	
-
     backToMain(){
         this.router.navigateByUrl('/');
     }

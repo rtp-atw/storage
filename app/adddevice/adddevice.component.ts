@@ -35,7 +35,6 @@ export class AddDevice implements OnInit {
         var excel = e.target.files[0];
         console.log(excel);
     }
-
     toMain() {
         this.router.navigateByUrl('/main');
     }
@@ -43,8 +42,6 @@ export class AddDevice implements OnInit {
         console.log(index);
         this.deviceDetails[index].file = e.target.files[0];
     }
-
-
     uploadPhoto(deviceKey:any, file:any) {
         this.storageRef.child("Device/" + file.name).put(file).then((snapshot) => {
           console.log(snapshot);
@@ -58,7 +55,7 @@ export class AddDevice implements OnInit {
             this.router.navigateByUrl('/');
           });
         });
-      }
+    }
       
     saveProduct(deviceKey:any,editedProduct:deviceDetail2,newfile:any) {
         if(deviceKey) {
@@ -73,7 +70,6 @@ export class AddDevice implements OnInit {
                 imgurl : editedProduct.imgurl,
                 key:editedProduct.key  
             });
-            
             this.uploadPhoto(deviceKey, newfile);
         }
         else {

@@ -8,14 +8,9 @@ import { Observable } from 'rxjs/Observable';
   moduleId: module.id,
   selector: 'my-dialog',
   templateUrl: 'popups.template.html',
-  //styleUrls: ['popups.component.css']
 })
 
-
-
 export class DialogOverview {
-
-  /* devicelist2: AngularFireList<any>; */
 
   editingDevice: deviceDetail2;
   devicelist: Observable<any[]>;
@@ -24,7 +19,6 @@ export class DialogOverview {
     public dialogRef: MatDialogRef<DialogOverview>,public angFire: AngularFireDatabase,
     @Inject(MAT_DIALOG_DATA) public data: any) { 
     this.devicelist = angFire.list('/').valueChanges();
-    /* this.devicelist2 = angFire.list('/'); */
     console.log('key', data);
     this.devicelist.subscribe((items)=> this.editedProduct = items.find(item=>item.key === data));
     }

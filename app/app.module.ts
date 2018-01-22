@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './products/product.component';
 import { NavbarComponent } from './nav/nav.component';
 import { DialogOverview } from "./popups/popups.component";
-import { ProductService } from './products/product.service';
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { AddDevice } from "./adddevice/adddevice.component";
@@ -58,7 +57,7 @@ export const firebaseConfig = {
                           NavbarComponent,
                           DialogOverview
                           ],
-  providers: [ ProductService,AddDevice],
+  providers: [ AddDevice],
   bootstrap: [AppComponent],
 /*   entryComponents: [
     DialogOverview 

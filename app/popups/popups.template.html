@@ -1,7 +1,6 @@
 <form>
   <h3>Please Enter Info: </h3>
-  <h2>Edit Product Details</h2>
-  
+  <h2>Edit Product Details</h2> 
   <p>ID: <input type="text"
                         name="ID"
                         [(ngModel)]="editedProduct.id" /></p>
@@ -20,9 +19,7 @@
   <p>Import Date: <input type="text"
                         name="Import Date"
                         [(ngModel)]="editedProduct.importdate" /></p>
-  <p>Image: <input type="file"(change)="selectFile($event)"><br><br>
-
-    
+  <p>Image: <input type="file"(change)="selectFile($event)"><br><br>    
     <button type="submit"
                 class="btn btn-primary"
                 (click)="updateProduct(editedProduct.key,editedProduct)">Submit</button>
@@ -31,5 +28,3 @@
                 (click)="onNoClick()">Cancel</button>
   </p>
 </form>
-
-<!-- <button type="button" class="btn btn-warning" (click)="onNoClick()">Cancel</button> -->
