@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { deviceDetail2 } from './product';
+import { deviceDetail } from './product';
 import { AddDevice } from "../adddevice/adddevice.component";
 
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
   currentUID: any;
   devicelist: Observable<any[]>;
   devicelist2: AngularFireList<any>;
-  editingDevice: deviceDetail2;
+  editingDevice: deviceDetail;
   file: any; picUrl: any;
 
   constructor(
@@ -77,7 +77,7 @@ export class ProductComponent implements OnInit {
     }  
   }
 
-  updateProduct(deviceKey:any,editedProduct:deviceDetail2) {
+  updateProduct(deviceKey:any,editedProduct:deviceDetail) {
 
     console.log('dataUpdate',editedProduct);
     console.log('keyUpdate',deviceKey);

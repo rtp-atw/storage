@@ -1,12 +1,15 @@
 <form>
   <h3>Please Enter Info: </h3>
   <h2>Edit Product Details</h2> 
-  <p>ID: <input type="text"
-                        name="ID"
-                        [(ngModel)]="editedProduct.id" /></p>
-  <p>Serial: <input type="text"
+  <p>Order: <input type="text"
+                        name="Order"
+                        [(ngModel)]="editedProduct.order" /></p>
+  <p>Serial Number: <input type="text"
                         name="Serial Number"
-                        [(ngModel)]="editedProduct.serialnumber" /></p>
+                        [(ngModel)]="editedProduct.serialNumber" /></p>
+  <p>Date: <input type="text"
+                        name="Date"
+                        [(ngModel)]="editedProduct.date" /></p>
   <p>Name: <input type="text"
                         name="Name"
                         [(ngModel)]="editedProduct.name" /></p>
@@ -15,10 +18,32 @@
                         [(ngModel)]="editedProduct.detail" /></p>
   <p>Location: <input type="text"
                         name="Location"
-                        [(ngModel)]="editedProduct.location_storage" /></p>
-  <p>Import Date: <input type="text"
-                        name="Import Date"
-                        [(ngModel)]="editedProduct.importdate" /></p>
+                        [(ngModel)]="editedProduct.location" /></p>
+
+  <p>Price/Unit: <input type="text"
+                        name="Price/Unit"
+                        [(ngModel)]="editedProduct.pricePerUnit" /></p>                     
+  
+  <p>Transfer Status: <input type="text"
+                        name="Transfer Status"
+                        [(ngModel)]="editedProduct.transferStatus" /></p> 
+
+  <p>Old Serial Number: <input type="text"
+                        name="Old Serial Number"
+                        [(ngModel)]="editedProduct.oldSerialNumber" /></p> 
+  
+  <p>Status: <input type="text"
+                        name="Status"
+                        [(ngModel)]="editedProduct.status" /></p>
+  
+  <p>TagUID: <input type="text"
+                        name="Remark"
+                        [(ngModel)]="editedProduct.tagUID" /></p> 
+  
+  <p>Remark: <input type="text"
+                        name="tagUID"
+                        [(ngModel)]="editedProduct.remark" /></p> 
+
   <p>Image: <input type="file"(change)="selectFile($event)"><br><br>    
     <button type="submit"
                 class="btn btn-primary"

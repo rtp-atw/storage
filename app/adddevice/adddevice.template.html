@@ -4,32 +4,44 @@
       <div class="row">
           <div class="col-md-3" *ngFor="let device of deviceDetails; let i = index">
             <div class="form-group">
-                <label [attr.for]="'id-' + i">ID:</label>
-                <input type="text" class="form-control" [attr.id]="'id-' + i" name='id'[(ngModel)]='device.id'/>
+                <label [attr.for]="'order-' + i">Order:</label>
+                <input type="text" class="form-control" [attr.id]="'order-' + i" name='order'[(ngModel)]='device.order'/>
                 
+                <label [attr.for]="'serialNumber-' + i">serialNumber:</label>
+                <input type="text" class="form-control" [attr.id]="'serialNumber-' + i" name='serialNumber' [(ngModel)]='device.serialNumber'/>
+                
+                <label [attr.for]="'date-' + i">Date:</label>
+                <input type="text" class="form-control" [attr.id]="'date-' + i" name='date' [(ngModel)]='device.date'/>
+
                 <label [attr.for]="'name-' + i">Name:</label>
                 <input type="text" class="form-control" [attr.id]="'name-' + i" name='name' [(ngModel)]='device.name'/>
-                
-                <label [attr.for]="'serialnumber-' + i">Serialnumber:</label>
-                <input type="text" class="form-control" [attr.id]="'serialnumber-' + i" name='serialnumber' [(ngModel)]='device.serialnumber'/>
-                
-                <label [attr.for]="'importdate-' + i">Import Date:</label>
-                <input type="text" class="form-control" [attr.id]="'importdate-' + i" name='importdate' [(ngModel)]='device.importdate'/>
-                
-                <label [attr.for]="'location_storage-' + i">Location:</label>
-                <input type="text" class="form-control" [attr.id]="'location_storage-' + i" name='location_storage' [(ngModel)]='device.location_storage'/>
-                
-                <label [attr.for]="'status-' + i">Status:</label>
-                <input type="text" class="form-control" [attr.id]="'status-' + i" name='status' [(ngModel)]='device.status'/>
-              
+
                 <label [attr.for]="'detail-' + i">Detail:</label>
                 <input type="text" class="form-control" [attr.id]="'detail-' + i" name='detail' [(ngModel)]='device.detail'/>
+                
+                <label [attr.for]="'location-' + i">Location:</label>
+                <input type="text" class="form-control" [attr.id]="'location-' + i" name='location' [(ngModel)]='device.location'/>
 
-                <label [attr.for]="'detail-' + i">Tag UID:</label>
-                <input type="text" class="form-control" [attr.id]="'detail-' + i" name='TAGUID' [(ngModel)]='device.tagUID'/>
+                <label [attr.for]="'pricePerUnit-' + i">Price/Unit:</label>
+                <input type="text" class="form-control" [attr.id]="'pricePerUnit-' + i" name='pricePerUnit' [(ngModel)]='device.pricePerUnit'/>
+
+                <label [attr.for]="'transferStatus-' + i">Transfer Status:</label>
+                <input type="text" class="form-control" [attr.id]="'transferStatus-' + i" name='transferStatus' [(ngModel)]='device.transferStatus'/>
+                
+                <label [attr.for]="'oldSerialNumber-' + i">Old Serial Number:</label>
+                <input type="text" class="form-control" [attr.id]="'oldSerialNumber-' + i" name='oldSerialNumber' [(ngModel)]='device.oldSerialNumber'/>
+
+                <label [attr.for]="'status-' + i">Status:</label>
+                <input type="text" class="form-control" [attr.id]="'status-' + i" name='status' [(ngModel)]='device.status'/>
+
+                <label [attr.for]="'tagUID-' + i">Tag UID:</label>
+                <input type="text" class="form-control" [attr.id]="'tagUID-' + i" name='tagUID' [(ngModel)]='device.tagUID'/>
 
                 <label [attr.for]="'imgurl-' + i">Image:</label>
                 <input input type='file'(change)='selectFile($event, i)' class="form-control" [attr.id]="'imgurl-' + i" />
+
+                <label [attr.for]="'remark-' + i">remark:</label>
+                <input type="text" class="form-control" [attr.id]="'remark-' + i" name='remark' [(ngModel)]='device.remark'/>
             </div>
           </div>
       </div>

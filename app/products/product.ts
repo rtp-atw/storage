@@ -3,7 +3,7 @@ export enum DeviceStatus { //DeviceStatus.good/bad
   bad = 0
 }
 
-export interface deviceDetail2 {
+/* export interface deviceDetail2 {
   id?: number;
   serialnumber?: number;
   name?: string;
@@ -16,7 +16,7 @@ export interface deviceDetail2 {
   key?:string;
   file?: any;
   tagUID?:string;
-}
+} */
 
 export interface deviceDetail {
   order?: number;
@@ -33,6 +33,7 @@ export interface deviceDetail {
   key?:string;
   file?: any;
   tagUID?:string;
+  status?:any;
 }
 /* deleteProduct(product: Product) {
   this.pItems.splice(this.pItems.indexOf(product), 1);

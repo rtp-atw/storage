@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { deviceDetail2 } from "../products/product";
+import { deviceDetail } from "../products/product";
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 import { Observable } from 'rxjs/Observable';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 
 export class AddDevice implements OnInit {
     
-    deviceDetails: deviceDetail2[] = [];
+    deviceDetails: deviceDetail[] = [];
 
     devicelist: AngularFireList<any>;
     storageRef = firebase.storage().ref();
@@ -43,29 +43,44 @@ export class AddDevice implements OnInit {
         this.deviceDetails[index].file = e.target.files[0];
     }
     uploadPhoto(deviceKey:any, file:any) {
-        this.storageRef.child("Device/" + file.name).put(file).then((snapshot) => {
-          console.log(snapshot);
-          this.storageRef.child("Device/" + file.name).getDownloadURL().then((url) => {
-            const picUrl = url;      
-            console.log('url', picUrl);
+        if(file) {
+            this.storageRef.child("Device/" + file.name).put(file).then((snapshot) => {
+                console.log(snapshot);
+                this.storageRef.child("Device/" + file.name).getDownloadURL().then((url) => {
+                  const picUrl = url;      
+                  console.log('url', picUrl);
+                  this.devicelist.update(deviceKey,{
+                    imgurl: picUrl,
+                    key: deviceKey
+                  });
+                  this.router.navigateByUrl('/');
+                });
+              });
+        }
+        else {
             this.devicelist.update(deviceKey,{
-              imgurl: picUrl,
+              imgurl: '',
               key: deviceKey
             });
             this.router.navigateByUrl('/');
-          });
-        });
+        }
+
+       
     }
       
-    saveProduct(deviceKey:any,editedProduct:deviceDetail2,newfile:any) {
+    saveProduct(deviceKey:any,editedProduct:deviceDetail,newfile:any) {
         if(deviceKey) {
             this.devicelist.update(deviceKey,{
-                id: editedProduct.id,
-                serialnumber: editedProduct.serialnumber,
+                order: editedProduct.order,
+                serialnumber: editedProduct.serialNumber,
+                date: editedProduct.date,
                 name: editedProduct.name,
                 detail: editedProduct.detail,
-                importdate: editedProduct.importdate,
-                location_storage: editedProduct.location_storage,
+                location: editedProduct.location,
+                pricePerUnit: editedProduct.pricePerUnit,
+                transferStatus: editedProduct.transferStatus,
+                oldSerialNumber : editedProduct.oldSerialNumber,
+                remark:editedProduct.remark,
                 status: editedProduct.status,
                 imgurl : editedProduct.imgurl,
                 key:editedProduct.key  
@@ -75,7 +90,7 @@ export class AddDevice implements OnInit {
         else {
             console.log('save',this.deviceDetails[0]);      
             this.deviceDetails.forEach(device=>{
-                if(device && device.id){
+                if(device && device.order){
                     var data = this.devicelist.push(device);
                     console.log(data.ref.key);
                     this.uploadPhoto(data.ref.key, device.file);

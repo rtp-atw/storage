@@ -7,7 +7,7 @@ import * as XLSX from 'xlsx';
 import * as fileSaver from 'file-saver';
 import { Router } from '@angular/router';
 import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
-import { deviceDetail2 } from "../products/product";
+import { deviceDetail } from "../products/product";
 
 type AOA = Array<Array<any>>;
 
@@ -24,6 +24,7 @@ function s2ab(s: string): ArrayBuffer {
 	<div class="container">
     	<div class="col-md-12">
 		<input type="file" (change)="onFileChange($event)" multiple="false" />
+		<br>
 			<div class="container">
 				<table class="table table-bordered table-striped table-hover">
 					<thead>
@@ -57,7 +58,7 @@ function s2ab(s: string): ArrayBuffer {
 })
 
 export class ImportExcel {
-	data: AOA = [ [1, 2], [3, 4] ];
+	data: AOA = [ [] ];
 	wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'binary' };
 	fileName: string = 'SheetJS.xlsx';
     devicelist: AngularFireList<any>;
@@ -95,14 +96,33 @@ export class ImportExcel {
 		reader.readAsBinaryString(target.files[0]);
 	}
 
-	uploadToFirebase(data:any){
+	uploadToFirebase(data:any[][]){
 		for(let i = 0;i !== data.length ;++i){
-			console.log('index',i);			
-			var excelData = this.devicelist.push(data[i]);
+			console.log('index',i);
+			console.log(data[i]);
+			const deviceDetail: deviceDetail = {
+				order: data[i][0],
+				serialNumber: data[i][1],
+				date: data[i][2],
+				name: data[i][3],
+				detail: data[i][4],
+				location: data[i][5],
+				pricePerUnit: data[i][6],
+				transferStatus: data[i][7],
+				oldSerialNumber : data[i][8],
+				remark:'',
+				imgurl : '',
+				key:'',
+				file: '',
+				tagUID:'',
+				status:'',
+			};		
+			var excelData = this.devicelist.push(deviceDetail);
 			this.devicelist.update(excelData.ref.key,{
 				key:excelData.ref.key
 			});
 		}
+		this.router.navigateByUrl('/');
 	}
 	
     backToMain(){

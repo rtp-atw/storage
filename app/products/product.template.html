@@ -22,14 +22,16 @@
         </thead>
         <tbody>
           <tr *ngFor="let device of devicelist | async">
-            <td>{{ device.id }}</td>
-            <td>{{ device.serialnumber }}</td>
+            <td>{{ device.order }}</td>
+            <td>{{ device.serialNumber }}</td>
+            <td>{{ device.date }}</td>
             <td>{{ device.name }}</td>
             <td>{{ device.detail }}</td>
-            <td>{{ device.location_storage}}</td>
-            <td>{{ device.importdate}}</td>  
-            <td>{{ device.status }}</td>
+            <td>{{ device.location}}</td>
+            <td>{{ device.oldSerialNumber}}</td>
+            <td>{{ device.status}}</td>  
             <td><img [src]="device.imgurl"></td>
+            <td>{{ device.remark }}</td>
             <td>
               <button class="btn btn-info"
                             (click)="openDialog(device.key)">
@@ -46,6 +48,7 @@
     </div> 
   <button (click)="toAddDevice()" class='btn btn-primary' >Add Device</button>
 
+  
 <!--    <form *ngIf="editProductForm">
     <h2>Edit Product Details</h2>
  
@@ -83,3 +86,4 @@
    </form> -->
   </div>
 </div>
+

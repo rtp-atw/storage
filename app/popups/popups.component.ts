@@ -1,6 +1,6 @@
 import { Component,Inject} from '@angular/core';
 import {MatDialogRef,MAT_DIALOG_DATA,MatDialog} from '@angular/material';
-import { deviceDetail2 } from '../products/product';
+import { deviceDetail } from '../products/product';
 import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 import { Observable } from 'rxjs/Observable';
 
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 
 export class DialogOverview {
 
-  editingDevice: deviceDetail2;
+  editingDevice: deviceDetail;
   devicelist: Observable<any[]>;
   editedProduct: any = {};
   constructor(
