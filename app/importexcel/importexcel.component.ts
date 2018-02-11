@@ -26,11 +26,27 @@ function s2ab(s: string): ArrayBuffer {
 		<input type="file" (change)="onFileChange($event)" multiple="false" />
 			<div class="container">
 				<table class="table table-bordered table-striped table-hover">
-					<tr *ngFor="let row of data">
-						<td *ngFor="let val of row">
-							{{val}}
-						</td>
-					</tr>
+					<thead>
+						<tr>
+							<th class="text-center">Order</th>
+							<th class="text-center">Serial Number</th>
+							<th class="text-center">Date</th>
+							<th class="text-center">Name</th>
+							<th class="text-center">Detail</th>
+							<th class="text-center">Location</th>
+							<th class="text-center">Price/Unit</th>
+							<th class="text-center">Transfer Status</th>
+							<th class="text-center">Old Serial Number</th>
+							<th class="text-center">Remark</th>
+						</tr>
+			  		</thead>
+			  		<tbody>
+						<tr *ngFor="let row of data">
+							<td *ngFor="let val of row">
+								{{val}}
+							</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 		<button class='btn btn-primary' (click)="uploadToFirebase(data)">Upload</button>
@@ -68,10 +84,13 @@ export class ImportExcel {
 			const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
 			/* save data */
-			this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1}));
+			this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1})).slice(5).map((row:any[]) =>{
+				return row.filter(col => col);
+			});
 			
+
             console.log('dataex',this.data[7]);//for เลือกเอา i กำหนด
-            
+			
 		};
 		reader.readAsBinaryString(target.files[0]);
 	}
@@ -79,8 +98,10 @@ export class ImportExcel {
 	uploadToFirebase(data:any){
 		for(let i = 0;i !== data.length ;++i){
 			console.log('index',i);			
-			this.devicelist.push(data[i]);
-			
+			var excelData = this.devicelist.push(data[i]);
+			this.devicelist.update(excelData.ref.key,{
+				key:excelData.ref.key
+			});
 		}
 	}
 	

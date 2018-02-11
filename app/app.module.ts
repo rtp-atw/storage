@@ -19,7 +19,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { HttpModule } from '@angular/http';
-
+import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -57,11 +57,9 @@ export const firebaseConfig = {
                           NavbarComponent,
                           DialogOverview
                           ],
-  providers: [ AddDevice],
+  providers: [ AddDevice,MatDialogModule,DialogOverview,],
   bootstrap: [AppComponent],
-/*   entryComponents: [
-    DialogOverview 
-] */
+
 })
 
 export class AppModule { }

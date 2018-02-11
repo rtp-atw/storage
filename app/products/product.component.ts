@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product,deviceDetail2,Answers } from './product';
+import { deviceDetail2 } from './product';
 import { AddDevice } from "../adddevice/adddevice.component";
 
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -48,9 +48,11 @@ export class ProductComponent implements OnInit {
       console.log(auth);
     });    
   }
-
-  openDialog(deviceKey: any): void {
+  keycheck(deviceKey:any){
     console.log(deviceKey);
+  }
+  openDialog(deviceKey: any): void {
+    console.log('dialogkey',deviceKey);
     let dialogRef = this.dialog.open(DialogOverview, {
       width: '250px',
       data: deviceKey });

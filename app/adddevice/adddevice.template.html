@@ -25,6 +25,9 @@
                 <label [attr.for]="'detail-' + i">Detail:</label>
                 <input type="text" class="form-control" [attr.id]="'detail-' + i" name='detail' [(ngModel)]='device.detail'/>
 
+                <label [attr.for]="'detail-' + i">Tag UID:</label>
+                <input type="text" class="form-control" [attr.id]="'detail-' + i" name='TAGUID' [(ngModel)]='device.tagUID'/>
+
                 <label [attr.for]="'imgurl-' + i">Image:</label>
                 <input input type='file'(change)='selectFile($event, i)' class="form-control" [attr.id]="'imgurl-' + i" />
             </div>

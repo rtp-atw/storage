@@ -15,6 +15,24 @@ export interface deviceDetail2 {
   imgurl? : any;
   key?:string;
   file?: any;
+  tagUID?:string;
+}
+
+export interface deviceDetail {
+  order?: number;
+  serialNumber?: number;
+  date?: string;
+  name?: string;
+  detail?: string;
+  location?: number;
+  pricePerUnit?: string;
+  transferStatus?: string;
+  oldSerialNumber? : number;
+  remark?:string;
+  imgurl? : any;
+  key?:string;
+  file?: any;
+  tagUID?:string;
 }
 /* deleteProduct(product: Product) {
   this.pItems.splice(this.pItems.indexOf(product), 1);
