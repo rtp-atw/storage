@@ -1,0 +1,127 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<!-- <form>
+    <h3>Please Enter Info: </h3>
+    <h2>Edit Product Details</h2> 
+    <p>Order: <input type="text"
+                          name="Order"
+                          [(ngModel)]="editedProduct.order" /></p>
+    <p>Serial Number: <input type="text"
+                          name="Serial Number"
+                          [(ngModel)]="editedProduct.serialNumber" /></p>
+    <p>Date: <input type="text"
+                          name="Date"
+                          [(ngModel)]="editedProduct.date" /></p>
+    <p>Name: <input type="text"
+                          name="Name"
+                          [(ngModel)]="editedProduct.name" /></p>
+    <p>Detail: <input type="text"
+                          name="Detail"
+                          [(ngModel)]="editedProduct.detail" /></p>
+    <p>Location: <input type="text"
+                          name="Location"
+                          [(ngModel)]="editedProduct.location" /></p>
+  
+    <p>Price/Unit: <input type="text"
+                          name="Price/Unit"
+                          [(ngModel)]="editedProduct.pricePerUnit" /></p>                     
+    
+    <p>Transfer Status: <input type="text"
+                          name="Transfer Status"
+                          [(ngModel)]="editedProduct.transferStatus" /></p> 
+  
+    <p>Old Serial Number: <input type="text"
+                          name="Old Serial Number"
+                          [(ngModel)]="editedProduct.oldSerialNumber" /></p> 
+    
+    <p>Status: <input type="text"
+                          name="Status"
+                          [(ngModel)]="editedProduct.status" /></p>
+    
+    <p>TagUID: <input type="text"
+                          name="Remark"
+                          [(ngModel)]="editedProduct.tagUID" /></p> 
+    
+    <p>Remark: <input type="text"
+                          name="tagUID"
+                          [(ngModel)]="editedProduct.remark" /></p> 
+  
+    <p>Image: <input type="file"(change)="selectFile($event)"><br><br>    
+      <button type="submit"
+                  class="btn btn-primary"
+                  (click)="updateProduct(editedProduct.key,editedProduct)">Submit</button>
+      <button type="button"
+                  class="btn btn-warning"
+                  (click)="onNoClick()">Cancel</button>
+    </p>
+</form> -->
+
+
+<div class="container" class="dialog">
+    <h1>Edit Device</h1>
+                <div class="row">
+                  <div class="col-md">
+                        <p>Order: <input type="text"
+                            name="Order"
+                            [(ngModel)]="editedProduct.order" /></p>
+                        <p>Serial Number: <input type="text"
+                            name="Serial Number"
+                            [(ngModel)]="editedProduct.serialNumber" /></p>
+                        <p>Date: <input type="text"
+                            name="Date"
+                            [(ngModel)]="editedProduct.date" /></p>
+                        <p>Name: <input type="text"
+                            name="Name"
+                            [(ngModel)]="editedProduct.name" /></p>
+                        <p>Detail: <input type="text"
+                            name="Detail"
+                            [(ngModel)]="editedProduct.detail" /></p>
+                        <p>Location: <input type="text"
+                            name="Location"
+                            [(ngModel)]="editedProduct.location" /></p>
+                        <p>Price/Unit: <input type="text"
+                            name="Price/Unit"
+                            [(ngModel)]="editedProduct.pricePerUnit" /></p>
+
+                        <button type="submit"
+                            class="btn dialog btn-primary"
+                            (click)="updateProduct(editedProduct.key,editedProduct)">Submit</button>
+                        <button type="button"
+                            class="btn dialog btn-warning"
+                            (click)="onNoClick()">Cancel</button>
+                  </div>
+
+                  <div class="col-md">                   
+                        <p>Transfer Status: <input type="text"
+                            name="Transfer Status"
+                            [(ngModel)]="editedProduct.transferStatus" /></p> 
+    
+                        <p>Old Serial Number: <input type="text"
+                            name="Old Serial Number"
+                            [(ngModel)]="editedProduct.oldSerialNumber" /></p> 
+      
+                        <p>Status: <input type="text"
+                            name="Status"
+                            [(ngModel)]="editedProduct.status" /></p>
+      
+                        <p>TagUID: <input type="text"
+                            name="Remark"
+                            [(ngModel)]="editedProduct.tagUID" /></p> 
+      
+                        <p>Remark: <input type="text"
+                            name="tagUID"
+                            [(ngModel)]="editedProduct.remark" /></p> 
+    
+                        <p>Image: <input type="file"(change)="selectFile($event)"></p>
+                    </div>
+                </div>
+</div>
+
+<!-- border border-dark -->

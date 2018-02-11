@@ -70,22 +70,42 @@ export class AddDevice implements OnInit {
       
     saveProduct(deviceKey:any,editedProduct:deviceDetail,newfile:any) {
         if(deviceKey) {
-            this.devicelist.update(deviceKey,{
-                order: editedProduct.order,
-                serialnumber: editedProduct.serialNumber,
-                date: editedProduct.date,
-                name: editedProduct.name,
-                detail: editedProduct.detail,
-                location: editedProduct.location,
-                pricePerUnit: editedProduct.pricePerUnit,
-                transferStatus: editedProduct.transferStatus,
-                oldSerialNumber : editedProduct.oldSerialNumber,
-                remark:editedProduct.remark,
-                status: editedProduct.status,
-                imgurl : editedProduct.imgurl,
-                key:editedProduct.key  
-            });
-            this.uploadPhoto(deviceKey, newfile);
+            if(editedProduct.imgurl){
+                this.devicelist.update(deviceKey,{
+                    order: editedProduct.order,
+                    serialnumber: editedProduct.serialNumber,
+                    date: editedProduct.date,
+                    name: editedProduct.name,
+                    detail: editedProduct.detail,
+                    location: editedProduct.location,
+                    pricePerUnit: editedProduct.pricePerUnit,
+                    transferStatus: editedProduct.transferStatus,
+                    oldSerialNumber : editedProduct.oldSerialNumber,
+                    remark:editedProduct.remark,
+                    status: editedProduct.status,
+                    key:editedProduct.key,
+                    tagUID: editedProduct.tagUID  
+                });
+            }
+            else{
+                this.devicelist.update(deviceKey,{
+                    order: editedProduct.order,
+                    serialnumber: editedProduct.serialNumber,
+                    date: editedProduct.date,
+                    name: editedProduct.name,
+                    detail: editedProduct.detail,
+                    location: editedProduct.location,
+                    pricePerUnit: editedProduct.pricePerUnit,
+                    transferStatus: editedProduct.transferStatus,
+                    oldSerialNumber : editedProduct.oldSerialNumber,
+                    remark:editedProduct.remark,
+                    status: editedProduct.status,
+                    imgurl : editedProduct.imgurl,
+                    key:editedProduct.key,
+                    tagUID: editedProduct.tagUID  
+                });
+                this.uploadPhoto(deviceKey, newfile);
+            }
         }
         else {
             console.log('save',this.deviceDetails[0]);      

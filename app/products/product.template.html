@@ -1,10 +1,10 @@
 <div class="container">
   <div class="col-md-12">
-    <h1>Product List</h1>
-    <div class="table-responsive">
+    <h1 class="head1">Product List</h1>
+    <div class="table-responsive ">
       <table class="table table-bordered table-striped table-hover">
         <thead>
-          <tr>
+          <tr class="dialog">
             <th class="text-center">Order</th>
 						<th class="text-center">Serial Number</th>
 						<th class="text-center">Date</th>
@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let device of devicelist | async">
+          <tr *ngFor="let device of devicelist | async" class="dialog2">
             <td>{{ device.order }}</td>
             <td>{{ device.serialNumber }}</td>
             <td>{{ device.date }}</td>

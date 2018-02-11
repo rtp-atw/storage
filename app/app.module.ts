@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { ProductComponent } from './products/product.component';
+import { ProductComponent,EditDialog } from './products/product.component';
 import { NavbarComponent } from './nav/nav.component';
 import { DialogOverview } from "./popups/popups.component";
 import { LoginComponent } from "./login/login.component";
@@ -18,11 +17,48 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-import { HttpModule } from '@angular/http';
 import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
-import { MatDialogModule } from '@angular/material';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
+import {HttpModule} from '@angular/http';
+import {CdkTableModule} from '@angular/cdk/table';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+} from '@angular/material';
+import {BrowserModule} from '@angular/platform-browser';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export const firebaseConfig = {
   production: false,
@@ -46,7 +82,10 @@ export const firebaseConfig = {
                    AngularFireDatabaseModule,
                    HttpModule,
                    MatDialogModule,
-                   BrowserAnimationsModule
+                   BrowserAnimationsModule,
+                   HttpClientModule,
+                   MatNativeDateModule,
+                   ReactiveFormsModule,
                    ],
   declarations: [ AppComponent,
                           ProductComponent,
@@ -55,11 +94,50 @@ export const firebaseConfig = {
                           AddDevice,
                           ImportExcel,
                           NavbarComponent,
-                          DialogOverview
+                          DialogOverview,
+                          EditDialog
                           ],
   providers: [ AddDevice,MatDialogModule,DialogOverview,],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent,EditDialog],
+  entryComponents: [ProductComponent, EditDialog],
+  exports: [
+    CdkTableModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+  ]
 
 })
 
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);

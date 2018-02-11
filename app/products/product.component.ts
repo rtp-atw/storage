@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject } from '@angular/core';
 import { deviceDetail } from './product';
 import { AddDevice } from "../adddevice/adddevice.component";
 
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
-import {MatDialog,MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialogRef,MatDialog,MAT_DIALOG_DATA} from '@angular/material';
 import {DialogOverview} from '../popups/popups.component';
 
 @Component({
@@ -53,12 +53,11 @@ export class ProductComponent implements OnInit {
   }
   openDialog(deviceKey: any): void {
     console.log('dialogkey',deviceKey);
-    let dialogRef = this.dialog.open(DialogOverview, {
-      width: '250px',
-      data: deviceKey });
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-    })
+    let dialogRef = this.dialog.open(EditDialog, {
+      width:  '1200px',
+      //height: '500px',
+      data: deviceKey
+    });
   } 
 
   toAddDevice() {
@@ -77,13 +76,51 @@ export class ProductComponent implements OnInit {
     }  
   }
 
-  updateProduct(deviceKey:any,editedProduct:deviceDetail) {
+/*   updateProduct(deviceKey:any,editedProduct:deviceDetail) {
 
     console.log('dataUpdate',editedProduct);
     console.log('keyUpdate',deviceKey);
     this.addDevice.saveProduct(deviceKey,editedProduct,this.file);
 
     this.editProductForm = false;
+  }
+  
+  selectFile(e:any) {
+    console.log(e);
+    this.file = e.target.files[0]
+  } */
+
+}
+
+@Component({
+  moduleId: module.id,
+  selector: 'product.edit.dialog',
+  templateUrl: 'product.edit.dialog.html',
+})
+export class EditDialog {
+
+  editingDevice: deviceDetail;
+  devicelist: Observable<any[]>;
+  editedProduct: any = {};
+  file: any;
+
+  constructor(
+    public dialogRef: MatDialogRef<EditDialog>,private angFire: AngularFireDatabase,private addDevice:AddDevice,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+      this.devicelist = angFire.list('/').valueChanges();
+      console.log('key', data);
+      this.devicelist.subscribe((items)=> this.editedProduct = items.find(item=>item.key === data));
+      console.log('editproduct',this.editedProduct);
+     }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  updateProduct(deviceKey:any,editedProduct:deviceDetail) {
+
+    console.log('dataUpdate',editedProduct);
+    console.log('keyUpdate',deviceKey);
+    this.addDevice.saveProduct(deviceKey,editedProduct,this.file);
   }
   
   selectFile(e:any) {

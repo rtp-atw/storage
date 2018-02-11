@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
-import { ProductComponent } from './products/product.component';
+import { ProductComponent,EditDialog } from './products/product.component';
 import { LoginComponent } from "./login/login.component";
 import { AddDevice } from "./adddevice/adddevice.component";
 import { RegisterComponent } from "./register/register.component";
@@ -15,7 +15,7 @@ import { DialogOverview } from "./popups/popups.component";
             { path: 'register', component: RegisterComponent },
             { path: 'add', component: AddDevice },
             { path: 'import', component: ImportExcel },
-            { path: 'popup', component: DialogOverview },
+            { path: 'dialog', component: EditDialog }, //////
             { path: '**', redirectTo: '', pathMatch: 'full' }
         ] , { preloadingStrategy: PreloadAllModules })
     ],
