@@ -70,7 +70,7 @@ export class AddDevice implements OnInit {
       
     saveProduct(deviceKey:any,editedProduct:deviceDetail,newfile:any) {
         if(deviceKey) {
-            if(editedProduct.imgurl){
+            if(editedProduct.imgurl) {
                 this.devicelist.update(deviceKey,{
                     order: editedProduct.order,
                     serialnumber: editedProduct.serialNumber,
@@ -87,7 +87,7 @@ export class AddDevice implements OnInit {
                     tagUID: editedProduct.tagUID  
                 });
             }
-            else{
+            else {
                 this.devicelist.update(deviceKey,{
                     order: editedProduct.order,
                     serialnumber: editedProduct.serialNumber,
@@ -104,8 +104,8 @@ export class AddDevice implements OnInit {
                     key:editedProduct.key,
                     tagUID: editedProduct.tagUID  
                 });
-                this.uploadPhoto(deviceKey, newfile);
             }
+            this.uploadPhoto(deviceKey, newfile);
         }
         else {
             console.log('save',this.deviceDetails[0]);      

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 
@@ -98,7 +98,7 @@ export const firebaseConfig = {
                           EditDialog
                           ],
   providers: [ AddDevice,MatDialogModule,DialogOverview,],
-  bootstrap: [AppComponent,EditDialog],
+  bootstrap: [AppComponent],
   entryComponents: [ProductComponent, EditDialog],
   exports: [
     CdkTableModule,

@@ -76,21 +76,8 @@ export class ProductComponent implements OnInit {
     }  
   }
 
-/*   updateProduct(deviceKey:any,editedProduct:deviceDetail) {
-
-    console.log('dataUpdate',editedProduct);
-    console.log('keyUpdate',deviceKey);
-    this.addDevice.saveProduct(deviceKey,editedProduct,this.file);
-
-    this.editProductForm = false;
-  }
-  
-  selectFile(e:any) {
-    console.log(e);
-    this.file = e.target.files[0]
-  } */
-
 }
+
 
 @Component({
   moduleId: module.id,

@@ -1,4 +1,4 @@
-
+/* @import "~@angular/material/prebuilt-themes/deeppurple-amber.css"; */
 /* Navbar */
 .nav .navbar-nav {
   font-size: 15px;
@@ -27,52 +27,10 @@
   color: rgb(0, 0, 0);   
   font-size:14px;
   font-weight:700;
+  
 }
 img {
   width: 260px;
   height: auto;
 }
-@font-face {
-  font-family: 'SanamDeklenchaya';
-  src: url('SanamDeklenchaya.eot');
-  src: url('SanamDeklenchaya.eot?#iefix') format('embedded-opentype'),
-      url('SanamDeklenchaya.woff2') format('woff2'),
-      url('SanamDeklenchaya.woff') format('woff'),
-      url('SanamDeklenchaya.ttf') format('truetype'),
-      url('SanamDeklenchaya.svg#SanamDeklenchaya') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-    font-family: 'TH SarabunPSK';
-    src: url('THSarabunPSK.eot');
-    src: url('THSarabunPSK.eot?#iefix') format('embedded-opentype'),
-        url('THSarabunPSK.woff2') format('woff2'),
-        url('THSarabunPSK.woff') format('woff'),
-        url('THSarabunPSK.ttf') format('truetype'),
-        url('THSarabunPSK.svg#THSarabunPSK') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-        
-.dialog {
-  font-size: 18px;
-  font-family: 'TH SarabunPSK';
-  font-weight: bold;
-  font-style: normal;
-}
-.dialog2 {
-  font-size: 18px;
-  font-family: 'TH SarabunPSK';
-  font-weight: normal;
-  font-style: normal;
-}
-.head1 {
-  font-size: 30px;
-  font-family: 'TH SarabunPSK';
-  font-weight: bold;
-  font-style: normal;
-}
-
-
 
