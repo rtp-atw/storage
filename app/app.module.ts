@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { ProductComponent,EditDialog } from './products/product.component';
 import { NavbarComponent } from './nav/nav.component';
-import { DialogOverview } from "./popups/popups.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { AddDevice } from "./adddevice/adddevice.component";
@@ -86,6 +85,7 @@ export const firebaseConfig = {
                    HttpClientModule,
                    MatNativeDateModule,
                    ReactiveFormsModule,
+                   MatButtonModule,
                    ],
   declarations: [ AppComponent,
                           ProductComponent,
@@ -94,10 +94,9 @@ export const firebaseConfig = {
                           AddDevice,
                           ImportExcel,
                           NavbarComponent,
-                          DialogOverview,
                           EditDialog
                           ],
-  providers: [ AddDevice,MatDialogModule,DialogOverview,],
+  providers: [ AddDevice,MatDialogModule,],
   bootstrap: [AppComponent],
   entryComponents: [ProductComponent, EditDialog],
   exports: [

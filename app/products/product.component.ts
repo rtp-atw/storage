@@ -9,7 +9,6 @@ import * as firebase from "firebase";
 import { Router } from '@angular/router';
 
 import {MatDialogRef,MatDialog,MAT_DIALOG_DATA} from '@angular/material';
-import {DialogOverview} from '../popups/popups.component';
 
 @Component({
     moduleId: module.id,

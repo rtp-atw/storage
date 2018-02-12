@@ -17,6 +17,9 @@ export class NavbarComponent {
   ) { 
     
   }
+  toAddDevice() {
+    this.router.navigateByUrl('/add');
+  }
   
   logout() {
     this.afAuth.auth.signOut();

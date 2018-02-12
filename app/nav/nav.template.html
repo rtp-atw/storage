@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<!-- <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">{{ appName }}</a>
@@ -6,4 +6,34 @@
       </div>
     </div>
     
+</nav> -->
+
+<!-- <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">{{ appName }}</a>
+    <form class="form-inline pull-right my-2 my-lg-0">
+      <button class="btn btn-outline-warning my-2 my-sm-0" (click)="logout()" >Logout</button>
+    </form>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">{{ appName }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="main">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <!-- <button type="button" class="btn btn-light">Light</button> -->
+        <a class="nav-link" (click)="toAddDevice()">Add Device</a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-warning my-2 my-sm-0" (click)="logout()">Logout</button>
+    </form>
+  </div>
 </nav>
