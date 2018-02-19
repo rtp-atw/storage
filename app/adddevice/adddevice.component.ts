@@ -12,23 +12,16 @@ import { Router } from '@angular/router';
 })
 
 export class AddDevice implements OnInit {
-    
     deviceDetails: deviceDetail[] = [];
-
     devicelist: AngularFireList<any>;
     storageRef = firebase.storage().ref();
-    picUrl: any;
-    data :Array<Array<any>>;
-    counter = 1;
-    limit = 3;
-
+    picUrl: any; data :Array<Array<any>>;
+    counter = 1; limit = 3;
     constructor(public angFire: AngularFireDatabase,
         private router: Router) {
-
         this.devicelist = angFire.list('/');
         this.deviceDetails = [{}];
     }
-
     ngOnInit() {}
 
     XLStoJSON(e: any) {
@@ -66,8 +59,7 @@ export class AddDevice implements OnInit {
         }
 
        
-    }
-      
+    }  
     saveProduct(deviceKey:any,editedProduct:deviceDetail,newfile:any) {
         if(deviceKey) {
             if(editedProduct.imgurl) {
@@ -84,7 +76,8 @@ export class AddDevice implements OnInit {
                     remark:editedProduct.remark,
                     status: editedProduct.status,
                     key:editedProduct.key,
-                    tagUID: editedProduct.tagUID  
+                    tagUID: editedProduct.tagUID,
+                    lastUpdate: editedProduct.lastUpdate  
                 });
             }
             else {
@@ -102,7 +95,8 @@ export class AddDevice implements OnInit {
                     status: editedProduct.status,
                     imgurl : editedProduct.imgurl,
                     key:editedProduct.key,
-                    tagUID: editedProduct.tagUID  
+                    tagUID: editedProduct.tagUID,
+                    lastUpdate: editedProduct.lastUpdate  
                 });
             }
             this.uploadPhoto(deviceKey, newfile);
@@ -118,7 +112,6 @@ export class AddDevice implements OnInit {
             });  
         }
     }
-
     addInput(){
         if(this.deviceDetails.length <3){
             this.deviceDetails.push({});
@@ -131,6 +124,4 @@ export class AddDevice implements OnInit {
     toExcelImport(){
         this.router.navigateByUrl('/import');
     }
-    
-    
 }  

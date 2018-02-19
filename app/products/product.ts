@@ -19,8 +19,5 @@ export interface deviceDetail {
   file?: any;
   tagUID?:string;
   status?:any;
+  lastUpdate?:string;
 }
-/* deleteProduct(product: Product) {
-  this.pItems.splice(this.pItems.indexOf(product), 1);
-  console.log(this.pItems);
-} */

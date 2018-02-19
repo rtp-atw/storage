@@ -31,12 +31,12 @@ export class LoginComponent implements OnInit {
         }
     }
     ngOnInit() {      
-    this.afAuth.authState.subscribe(auth => { 
-      if (!auth)  
-        this.router.navigateByUrl('/');
-      else
-        this.router.navigateByUrl('/main');
-    });
+        this.afAuth.authState.subscribe(auth => { 
+            if (!auth)  
+                this.router.navigateByUrl('/');
+            else
+                this.router.navigateByUrl('/main');
+        });
     }
 
     register(){

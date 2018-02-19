@@ -17,29 +17,23 @@ import {MatDialogRef,MatDialog,MAT_DIALOG_DATA} from '@angular/material';
 })
 
 export class ProductComponent implements OnInit {
-  
   editProductForm: boolean = false;
   editedProduct: any = {};
-
   currentUID: any;
   devicelist: Observable<any[]>;
   devicelist2: AngularFireList<any>;
   editingDevice: deviceDetail;
   file: any; picUrl: any;
-
   constructor(
     private afAuth: AngularFireAuth,
     public angFire: AngularFireDatabase,
     private router: Router,
     private addDevice : AddDevice,
     public dialog: MatDialog,
-    ) { 
-    
+    ) {  
     this.devicelist = angFire.list('/').valueChanges();
     this.devicelist2 = angFire.list('/');
-
     }
-
   ngOnInit() {
     this.afAuth.authState.subscribe((auth) => { 
       this.currentUID = auth.uid;
@@ -47,14 +41,10 @@ export class ProductComponent implements OnInit {
       console.log(auth);
     });    
   }
-  keycheck(deviceKey:any){
-    console.log(deviceKey);
-  }
   openDialog(deviceKey: any): void {
     console.log('dialogkey',deviceKey);
     let dialogRef = this.dialog.open(EditDialog, {
       width:  '1200px',
-      //height: '500px',
       data: deviceKey
     });
   } 
@@ -62,7 +52,6 @@ export class ProductComponent implements OnInit {
   toAddDevice() {
     this.router.navigateByUrl('/add');
   }
-
   removeProduct(deviceKey:any) {
     if (confirm('Are you sure you want to delete this device?')) {
       if(deviceKey){
@@ -113,5 +102,4 @@ export class EditDialog {
     console.log(e);
     this.file = e.target.files[0]
   }
-
 }

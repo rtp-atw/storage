@@ -1,3 +1,4 @@
+<br>
 <form name=addDevice>
   <div class="container">  
     <h2>Add new product</h2>
@@ -17,7 +18,7 @@
                 <input type="text" class="form-control" [attr.id]="'name-' + i" name='name' [(ngModel)]='device.name'/>
 
                 <label [attr.for]="'detail-' + i">Detail:</label>
-                <input type="text" class="form-control" [attr.id]="'detail-' + i" name='detail' [(ngModel)]='device.detail'/>
+                <input type="text" class="form-control box" [attr.id]="'detail-' + i" name='detail' [(ngModel)]='device.detail'/>
                 
                 <label [attr.for]="'location-' + i">Location:</label>
                 <input type="text" class="form-control" [attr.id]="'location-' + i" name='location' [(ngModel)]='device.location'/>
@@ -40,51 +41,19 @@
                 <label [attr.for]="'imgurl-' + i">Image:</label>
                 <input input type='file'(change)='selectFile($event, i)' class="form-control" [attr.id]="'imgurl-' + i" />
 
-                <label [attr.for]="'remark-' + i">remark:</label>
+                <label [attr.for]="'remark-' + i">Remark:</label>
                 <input type="text" class="form-control" [attr.id]="'remark-' + i" name='remark' [(ngModel)]='device.remark'/>
             </div>
           </div>
       </div>
-    <button type='submit'class='btn btn-primary'(click)='saveProduct()'>Submit</button>
-    <button type='button'class='btn btn-warning'(click)='toMain()'>Cancel</button>
-    <button (click)="toExcelImport()" class='btn btn-primary' >ExcelImport</button>
-    <input class='btn btn-primary'type="button" value="Add another text input" (click)="addInput()">
+    <button type='submit' mat-raised-button (click)='saveProduct()'>Submit</button>
+    <button type='button' mat-raised-button color="warn" (click)='toMain()'>Cancel</button>
+    <button (click)="toExcelImport()" mat-raised-button color="primary" >Excel</button>
+    <button (click)="addInput()" mat-raised-button color="primary" >Add another text input</button>
+    <!-- <input mat-raised-button type="button" value="Add another text input" (click)="addInput()"> -->
   </div>
 </form>
 
-    <!-- <div id="dynamicInput">
-        <h2 align="center">Add New Product</h2>
-        <p>ID: <input type='text'
-                              name='id'
-                              [(ngModel)]='deviceDetail.id' /></p>
-        <p>Serial: <input type='text'
-                              name='name'
-                              [(ngModel)]='deviceDetail.serialnumber' /></p>
-        <p>Name: <input type='text'
-                              name='description'
-                              [(ngModel)]='deviceDetail.name' /></p>
-        <p>Import Date: <input type='text'
-                              name='location'
-                              [(ngModel)]='deviceDetail.importdate' /></p>
-        <p>Location: <input type='text'
-                              name='id'
-                              [(ngModel)]='deviceDetail.location_storage' /></p>
-        <p>Status: <input type='text'
-                              name='name'
-                              [(ngModel)]='deviceDetail.status' /></p>
-        <p>Detail: <input type='text'
-                              name='description'
-                              [(ngModel)]='deviceDetail.detail' /></p>
-        <p>Image: <input type='file'(change)='selectFile($event)'><br><br>          
-          <button type='submit'
-                       class='btn btn-primary'
-                       (click)='saveProduct()'>Submit</button>
-          <button type='button'
-                       class='btn btn-warning'
-                       (click)='toMain()'>Cancel</button>
-          <button (click)="toExcelImport()" >ExcelImport</button>
-        </p>
-      </div> -->
 
 
     

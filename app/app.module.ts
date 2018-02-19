@@ -86,6 +86,8 @@ export const firebaseConfig = {
                    MatNativeDateModule,
                    ReactiveFormsModule,
                    MatButtonModule,
+                   MatDatepickerModule,
+                   MatInputModule,
                    ],
   declarations: [ AppComponent,
                           ProductComponent,

@@ -22,8 +22,10 @@ function s2ab(s: string): ArrayBuffer {
 	selector: 'sheetjs',//sjs-table
 	template: `
 	<div class="container">
-    	<div class="col-md-12">
+		<div class="col-md-12">
+		<br>
 		<input type="file" (change)="onFileChange($event)" multiple="false" />
+		<br>
 		<br>
 			<div class="container">
 				<table class="table table-bordered table-striped table-hover">
@@ -65,9 +67,7 @@ export class ImportExcel {
 
     constructor(public angFire: AngularFireDatabase,
         private router: Router) {
-    
-        this.devicelist = angFire.list('/');
-       
+        this.devicelist = angFire.list('/');     
     }
 
 	onFileChange(evt: any) {
