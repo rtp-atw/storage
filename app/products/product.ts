@@ -4,7 +4,7 @@ export enum DeviceStatus { //DeviceStatus.good/bad
 }
 
 export interface deviceDetail {
-  order?: number;
+  number?: number;
   serialNumber?: number;
   date?: string;
   name?: string;

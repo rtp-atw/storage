@@ -5,8 +5,8 @@
       <div class="row">
           <div class="col-md-3" *ngFor="let device of deviceDetails; let i = index">
             <div class="form-group">
-                <label [attr.for]="'order-' + i">Order:</label>
-                <input type="text" class="form-control" [attr.id]="'order-' + i" name='order'[(ngModel)]='device.order'/>
+                <label [attr.for]="'number-' + i">Number:</label>
+                <input type="text" class="form-control" [attr.id]="'number-' + i" name='order'[(ngModel)]='device.number'/>
                 
                 <label [attr.for]="'serialNumber-' + i">serialNumber:</label>
                 <input type="text" class="form-control" [attr.id]="'serialNumber-' + i" name='serialNumber' [(ngModel)]='device.serialNumber'/>

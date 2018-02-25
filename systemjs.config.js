@@ -45,6 +45,8 @@
     'firebase/firestore': 'npm:firebase/firebase.js',
     'file-saver' : 'npm:file-saver/FileSaver.min.js', 
 
+    'moment' : 'node_modules/moment',
+
     'typed-prompts' : 'npm:typed-prompts/lib/inquirer.js',
     
     'xlsx': 'npm:xlsx/dist/xlsx.full.min.js', // <-- make sure xlsx.full.min.js is in same dir 'xlsx.full.min.js'
@@ -57,7 +59,8 @@
   var packages = {
     'app': { main: 'main.js',  defaultExtension: 'js' },
     'rxjs': { defaultExtension: 'js' },
-    'lodash': { main: 'index.js', defaultExtension: 'js' }
+    'lodash': { main: 'index.js', defaultExtension: 'js' },
+    'moment': { main: 'moment.js', defaultExtension: 'js' },
   };
 
   var ngPackageNames = [
@@ -100,7 +103,8 @@
     },
     'xlsx': {
       exports: 'XLSX' // <-- tell SystemJS to expose the XLSX variable
-    }
+    },
+    'moment': { format: 'global' }
 
   };
 

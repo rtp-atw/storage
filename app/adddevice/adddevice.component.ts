@@ -5,6 +5,7 @@ import { AngularFireList, AngularFireDatabase } from "angularfire2/database";
 import { Observable } from 'rxjs/Observable';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
     moduleId: module.id,
@@ -17,10 +18,13 @@ export class AddDevice implements OnInit {
     storageRef = firebase.storage().ref();
     picUrl: any; data :Array<Array<any>>;
     counter = 1; limit = 3;
+    myDate: String;
+
     constructor(public angFire: AngularFireDatabase,
         private router: Router) {
         this.devicelist = angFire.list('/');
         this.deviceDetails = [{}];
+        this.myDate = moment().format('LLLL');
     }
     ngOnInit() {}
 
@@ -64,7 +68,7 @@ export class AddDevice implements OnInit {
         if(deviceKey) {
             if(editedProduct.imgurl) {
                 this.devicelist.update(deviceKey,{
-                    order: editedProduct.order,
+                    number: editedProduct.number,
                     serialnumber: editedProduct.serialNumber,
                     date: editedProduct.date,
                     name: editedProduct.name,
@@ -77,13 +81,13 @@ export class AddDevice implements OnInit {
                     status: editedProduct.status,
                     key:editedProduct.key,
                     tagUID: editedProduct.tagUID,
-                    lastUpdate: editedProduct.lastUpdate  
+                    lastUpdate: this.myDate ,
                 });
             }
             else {
                 this.devicelist.update(deviceKey,{
-                    order: editedProduct.order,
-                    serialnumber: editedProduct.serialNumber,
+                    number: editedProduct.number,
+                    serialNumber: editedProduct.serialNumber,
                     date: editedProduct.date,
                     name: editedProduct.name,
                     detail: editedProduct.detail,
@@ -96,15 +100,16 @@ export class AddDevice implements OnInit {
                     imgurl : editedProduct.imgurl,
                     key:editedProduct.key,
                     tagUID: editedProduct.tagUID,
-                    lastUpdate: editedProduct.lastUpdate  
+                    lastUpdate: this.myDate  
                 });
+                this.uploadPhoto(deviceKey, newfile);
             }
-            this.uploadPhoto(deviceKey, newfile);
+    
         }
         else {
             console.log('save',this.deviceDetails[0]);      
             this.deviceDetails.forEach(device=>{
-                if(device && device.order){
+                if(device && device.number){
                     var data = this.devicelist.push(device);
                     console.log(data.ref.key);
                     this.uploadPhoto(data.ref.key, device.file);

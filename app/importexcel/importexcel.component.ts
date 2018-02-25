@@ -31,7 +31,7 @@ function s2ab(s: string): ArrayBuffer {
 				<table class="table table-bordered table-striped table-hover">
 					<thead>
 						<tr>
-							<th class="text-center">Order</th>
+							<th class="text-center">Number</th>
 							<th class="text-center">Serial Number</th>
 							<th class="text-center">Date</th>
 							<th class="text-center">Name</th>
@@ -101,7 +101,7 @@ export class ImportExcel {
 			console.log('index',i);
 			console.log(data[i]);
 			const deviceDetail: deviceDetail = {
-				order: data[i][0],
+				number: data[i][0],
 				serialNumber: data[i][1],
 				date: data[i][2],
 				name: data[i][3],
@@ -116,6 +116,7 @@ export class ImportExcel {
 				file: '',
 				tagUID:'',
 				status:'',
+				lastUpdate:''
 			};		
 			var excelData = this.devicelist.push(deviceDetail);
 			this.devicelist.update(excelData.ref.key,{

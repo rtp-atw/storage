@@ -82,10 +82,12 @@ export class EditDialog {
   constructor(
     public dialogRef: MatDialogRef<EditDialog>,private angFire: AngularFireDatabase,private addDevice:AddDevice,
     @Inject(MAT_DIALOG_DATA) public data: any) {
+
       this.devicelist = angFire.list('/').valueChanges();
       console.log('key', data);
       this.devicelist.subscribe((items)=> this.editedProduct = items.find(item=>item.key === data));
       console.log('editproduct',this.editedProduct);
+
      }
 
   onNoClick(): void {
@@ -96,6 +98,8 @@ export class EditDialog {
     console.log('dataUpdate',editedProduct);
     console.log('keyUpdate',deviceKey);
     this.addDevice.saveProduct(deviceKey,editedProduct,this.file);
+    this.dialogRef.close();
+
   }
   
   selectFile(e:any) {

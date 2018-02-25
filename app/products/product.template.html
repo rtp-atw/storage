@@ -6,7 +6,7 @@
       <table class="table table-bordered table-striped table-hover">
         <thead>
           <tr>
-            <th class="text-center">Order</th>
+            <th class="text-center">Number</th>
 						<th class="text-center">Serial Number</th>
 						<th class="text-center">Date</th>
 						<th class="text-center">Name</th>
@@ -21,7 +21,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let device of devicelist | async">
-            <td>{{ device.order }}</td>
+            <td>{{ device.number }}</td>
             <td>{{ device.serialNumber }}</td>
             <td>{{ device.date }}</td>
             <td>{{ device.name }}</td>
