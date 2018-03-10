@@ -85,12 +85,15 @@ export class ImportExcel {
 			const ws: XLSX.WorkSheet = wb.Sheets[wsname];
 
 			/* save data */
-			this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1})).slice(5).map((row:any[]) =>{
-				return row.filter(col => col);
+			this.data = <AOA>(XLSX.utils.sheet_to_json(ws, {header: 1, defval:''})).slice(5).map((row:any[]) =>{
+				//console.log(row);		
+				return row.filter((col,index)=>[4,5,7,8,9].indexOf(index)===-1);
+
+				
 			});
 			
 
-            console.log('dataex',this.data[7]);//for เลือกเอา i กำหนด
+            console.log('dataex',this.data[31]);//for เลือกเอา i กำหนด
 			
 		};
 		reader.readAsBinaryString(target.files[0]);
