@@ -31,8 +31,8 @@ export class ProductComponent implements OnInit {
     private addDevice : AddDevice,
     public dialog: MatDialog,
     ) {  
-    this.devicelist = angFire.list('/').valueChanges();
-    this.devicelist2 = angFire.list('/');
+    this.devicelist = angFire.list('/devices').valueChanges();
+    this.devicelist2 = angFire.list('/devices');
     }
   ngOnInit() {
     this.afAuth.authState.subscribe((auth) => { 
@@ -63,6 +63,9 @@ export class ProductComponent implements OnInit {
       console.log('back');
     }  
   }
+  scrollToTop(){
+    window.scrollTo(0, 0);
+  }
 
 }
 
@@ -83,7 +86,7 @@ export class EditDialog {
     public dialogRef: MatDialogRef<EditDialog>,private angFire: AngularFireDatabase,private addDevice:AddDevice,
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
-      this.devicelist = angFire.list('/').valueChanges();
+      this.devicelist = angFire.list('/devices').valueChanges();
       console.log('key', data);
       this.devicelist.subscribe((items)=> this.editedProduct = items.find(item=>item.key === data));
       console.log('editproduct',this.editedProduct);

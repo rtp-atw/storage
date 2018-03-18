@@ -22,7 +22,7 @@ export class AddDevice implements OnInit {
 
     constructor(public angFire: AngularFireDatabase,
         private router: Router) {
-        this.devicelist = angFire.list('/');
+        this.devicelist = angFire.list('/devices');
         this.deviceDetails = [{}];
         this.myDate = moment().format('LLLL');
     }
@@ -109,8 +109,25 @@ export class AddDevice implements OnInit {
         else {
             console.log('save',this.deviceDetails[0]);      
             this.deviceDetails.forEach(device=>{
-                if(device && device.number){
-                    var data = this.devicelist.push(device);
+                if(device || device.number){
+                    var data = this.devicelist.push(Object.assign(
+                        {
+                          number: 0,
+                          serialNumber: 0,
+                          date: "",
+                          name: "",
+                          detail: "",
+                          location: 0,
+                          pricePerUnit: "",
+                          transferStatus: "",
+                          oldSerialNumber : 0,
+                          remark:"",
+                          imgurl : "",
+                          file: "",
+                          tagUID:"",
+                          status:""
+                        },device
+                    ));
                     console.log(data.ref.key);
                     this.uploadPhoto(data.ref.key, device.file);
                 }

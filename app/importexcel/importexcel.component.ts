@@ -67,7 +67,7 @@ export class ImportExcel {
 
     constructor(public angFire: AngularFireDatabase,
         private router: Router) {
-        this.devicelist = angFire.list('/');     
+        this.devicelist = angFire.list('/devices');     
     }
 
 	onFileChange(evt: any) {

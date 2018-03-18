@@ -44,7 +44,6 @@
     'firebase/auth': 'npm:firebase/firebase.js',
     'firebase/firestore': 'npm:firebase/firebase.js',
     'file-saver' : 'npm:file-saver/FileSaver.min.js', 
-
     'moment' : 'node_modules/moment',
 
     'typed-prompts' : 'npm:typed-prompts/lib/inquirer.js',

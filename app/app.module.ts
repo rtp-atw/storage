@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+
 import {MatDialogRef,MAT_DIALOG_DATA} from '@angular/material';
 
 import {HttpClientModule} from '@angular/common/http';
@@ -89,6 +90,7 @@ export const firebaseConfig = {
                    MatButtonModule,
                    MatDatepickerModule,
                    MatInputModule,
+                   
                    ],
   declarations: [ AppComponent,
                           ProductComponent,
