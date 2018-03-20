@@ -93,7 +93,7 @@ export class ImportExcel {
 			});
 			
 
-            console.log('dataex',this.data[31]);//for เลือกเอา i กำหนด
+            console.log('dataex',this.data[31]);
 			
 		};
 		reader.readAsBinaryString(target.files[0]);
